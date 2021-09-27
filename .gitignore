@@ -6,13 +6,13 @@
 #
 # Get latest from https://github.com/github/gitignore/blob/master/Unity.gitignore
 #
-/[Ll]ibrary/
-/[Tt]emp/
-/[Oo]bj/
-/[Bb]uild/
-/[Bb]uilds/
-/[Ll]ogs/
-/[Uu]ser[Ss]ettings/
+/01_FrontEnd/Project_AutismTargetLearning/[Ll]ibrary/
+/01_FrontEnd/Project_AutismTargetLearning/[Tt]emp/
+/01_FrontEnd/Project_AutismTargetLearning/[Oo]bj/
+/01_FrontEnd/Project_AutismTargetLearning/[Bb]uild/
+/01_FrontEnd/Project_AutismTargetLearning/[Bb]uilds/
+/01_FrontEnd/Project_AutismTargetLearning/[Ll]ogs/
+/01_FrontEnd/Project_AutismTargetLearning/[Uu]ser[Ss]ettings/
 
 # MemoryCaptures can get excessive in size.
 # They also could contain extremely sensitive data
@@ -20,6 +20,8 @@
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta
+/01_FrontEnd/Project_AutismTargetLearning/[Aa]ssets/**/*.meta
+/01_FrontEnd/Project_AutismTargetLearning/Library/PackageCache/com.unity.2d.animation@5.0.7/Editor/Assets/SkinningModule/Icons/Dark/*.meta
 
 # Uncomment this line if you wish to ignore the asset store tools plugin
 # /[Aa]ssets/AssetStoreTools*
