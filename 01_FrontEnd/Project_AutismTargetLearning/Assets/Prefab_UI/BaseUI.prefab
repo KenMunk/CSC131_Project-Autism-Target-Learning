@@ -75,7 +75,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 1, g: 1, b: 1, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -126,7 +126,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3080500513217164396}
   - component: {fileID: 3080500513217164398}
-  - component: {fileID: 3080500513217164397}
+  - component: {fileID: 7325336446607448985}
   m_Layer: 5
   m_Name: Background -- (Everything_Below_Here)
   m_TagString: Untagged
@@ -161,7 +161,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3080500513217164395}
   m_CullTransparentMesh: 1
---- !u!114 &3080500513217164397
+--- !u!114 &7325336446607448985
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -182,7 +182,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 0}
-  m_Type: 1
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4

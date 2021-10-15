@@ -333,6 +333,7 @@ GameObject:
   - component: {fileID: 7107516406438123269}
   - component: {fileID: 5736333830423699690}
   - component: {fileID: 497217745589681729}
+  - component: {fileID: 6462143923246379535}
   m_Layer: 5
   m_Name: Home (1)
   m_TagString: Untagged
@@ -441,7 +442,32 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5736333830423699690}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6462143923246379535}
+        m_TargetAssemblyTypeName: SceneSwitch, Assembly-CSharp
+        m_MethodName: switchScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &6462143923246379535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4864205872717155217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b107480ca5b73be4eaa5bff72ab05fe9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetScene: sampleScene
 --- !u!1 &4960780644837154786
 GameObject:
   m_ObjectHideFlags: 0

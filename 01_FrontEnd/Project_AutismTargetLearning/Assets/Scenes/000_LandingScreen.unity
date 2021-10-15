@@ -348,6 +348,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1247177629}
   m_CullTransparentMesh: 1
+--- !u!114 &1557237718 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8017755072810511463, guid: f590cec9f4cd3de4db87b4eb71b95421, type: 3}
+  m_PrefabInstance: {fileID: 1589018716}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b107480ca5b73be4eaa5bff72ab05fe9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1589018716
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -358,6 +369,10 @@ PrefabInstance:
     - target: {fileID: 731626499699244713, guid: f590cec9f4cd3de4db87b4eb71b95421, type: 3}
       propertyPath: m_Name
       value: Teach Mode
+      objectReference: {fileID: 0}
+    - target: {fileID: 1899523202757182568, guid: f590cec9f4cd3de4db87b4eb71b95421, type: 3}
+      propertyPath: targetScene
+      value: 200_SetLauncherMenu
       objectReference: {fileID: 0}
     - target: {fileID: 2872237558280269802, guid: f590cec9f4cd3de4db87b4eb71b95421, type: 3}
       propertyPath: m_Name
@@ -451,9 +466,41 @@ PrefabInstance:
       propertyPath: m_Text
       value: Teach Mode
       objectReference: {fileID: 0}
+    - target: {fileID: 5775707360685948749, guid: f590cec9f4cd3de4db87b4eb71b95421, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5775707360685948749, guid: f590cec9f4cd3de4db87b4eb71b95421, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5775707360685948749, guid: f590cec9f4cd3de4db87b4eb71b95421, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1557237718}
+    - target: {fileID: 5775707360685948749, guid: f590cec9f4cd3de4db87b4eb71b95421, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5775707360685948749, guid: f590cec9f4cd3de4db87b4eb71b95421, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: switchScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 5775707360685948749, guid: f590cec9f4cd3de4db87b4eb71b95421, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SceneSwitch, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5775707360685948749, guid: f590cec9f4cd3de4db87b4eb71b95421, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 5923134109165272736, guid: f590cec9f4cd3de4db87b4eb71b95421, type: 3}
       propertyPath: m_Name
       value: Exit App
+      objectReference: {fileID: 0}
+    - target: {fileID: 8017755072810511463, guid: f590cec9f4cd3de4db87b4eb71b95421, type: 3}
+      propertyPath: targetScene
+      value: 100_LoginScreen
       objectReference: {fileID: 0}
     - target: {fileID: 8664264965201598800, guid: f590cec9f4cd3de4db87b4eb71b95421, type: 3}
       propertyPath: m_Text
