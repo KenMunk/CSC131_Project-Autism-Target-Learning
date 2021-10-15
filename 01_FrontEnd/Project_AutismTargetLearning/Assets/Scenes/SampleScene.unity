@@ -178,9 +178,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3080500513217164395, guid: 857504110f7d26744ad00c3b52f529e2, type: 3}
+      propertyPath: m_Name
+      value: Background -- (Everything_Below_Here)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3080500514033566543, guid: 857504110f7d26744ad00c3b52f529e2, type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3080500514033566543, guid: 857504110f7d26744ad00c3b52f529e2, type: 3}
       propertyPath: m_ReferenceResolution.x
-      value: 1920
+      value: 2340
       objectReference: {fileID: 0}
     - target: {fileID: 3080500514033566543, guid: 857504110f7d26744ad00c3b52f529e2, type: 3}
       propertyPath: m_ReferenceResolution.y
