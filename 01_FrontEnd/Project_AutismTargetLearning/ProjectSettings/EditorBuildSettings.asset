@@ -5,9 +5,6 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
     path: Assets/Scenes/000_LandingScreen.unity
     guid: 4d2e873fd096cfc4ebad1141918b4d89
@@ -15,13 +12,16 @@ EditorBuildSettings:
     path: Assets/Scenes/100_LoginScreen.unity
     guid: 8817e966e8d7397479d4e39427773a83
   - enabled: 1
-    path: Assets/Scenes/110_TargetLibraryManagementScene.unity
+    path: Assets/Scenes/110_GuardianModeMenu.unity
+    guid: c2ea55059dfef6045a353e790c53a2a4
+  - enabled: 1
+    path: Assets/Scenes/111_TargetLibraryManagementScene.unity
     guid: f82eb97f9f40cce4ba5644486926b344
   - enabled: 1
-    path: Assets/Scenes/111_UploadFromTargetLibraryScene.unity
+    path: Assets/Scenes/112_UploadFromTargetLibraryScene.unity
     guid: 7ce01c6363c18474b815c7c55a915c1f
   - enabled: 1
-    path: Assets/Scenes/112_DownloadFromTargetLibraryScene.unity
+    path: Assets/Scenes/113_DownloadFromTargetLibraryScene.unity
     guid: 5d0e57ac087cdfe42bec5ec2e37c659d
   - enabled: 1
     path: Assets/Scenes/120_SetManagementScreen.unity
@@ -35,4 +35,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/210_SetDisplayScreen.unity
     guid: 4a4443d34ca5d5541b8768360af2206c
+  - enabled: 1
+    path: Assets/Scenes/SampleScene.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
   m_configObjects: {}
