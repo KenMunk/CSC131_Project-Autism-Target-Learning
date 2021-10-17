@@ -20,7 +20,7 @@
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta
-/01_FrontEnd/Project_AutismTargetLearning/[Aa]ssets/**/*.meta
+!/01_FrontEnd/Project_AutismTargetLearning/[Aa]ssets/**/*.meta
 /01_FrontEnd/Project_AutismTargetLearning/Library/PackageCache/com.unity.2d.animation@5.0.7/Editor/Assets/SkinningModule/Icons/Dark/*.meta
 
 # Uncomment this line if you wish to ignore the asset store tools plugin
