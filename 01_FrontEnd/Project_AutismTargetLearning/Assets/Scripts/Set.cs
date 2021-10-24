@@ -98,4 +98,12 @@ public class Set
 
         return (output);
     }
+    // Takes the last item in the set and stores it, then it removes it and then inserts it in the front making everything shift over 1.
+    public void rotateSet(List<Target> set)
+    {
+        int last;
+        last = set[set.Count - 1];
+        set.RemoveItem(set.Count - 1);
+        set.InsertItem(0, last);
+    }
 }
