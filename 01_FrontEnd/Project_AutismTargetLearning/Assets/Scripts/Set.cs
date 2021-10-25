@@ -25,11 +25,13 @@ public class Set
     }
     // SUMMARY
     // Creating a List from Json
-    // To be edited further
+    // Fixed error with implicitly converting
     // /SUMMARY
     public Set(string json)
     {
-        set = JsonUtility.FromJson<Set>(json);
+        Set NewSet = JsonUtility.FromJson<Set>(json);
+	    this.set = NewSet.GetList();
+	    this.SetName = NewSet.GetName();
     }
 
     // SUMMARY
