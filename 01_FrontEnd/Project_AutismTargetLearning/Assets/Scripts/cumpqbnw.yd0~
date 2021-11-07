@@ -1,0 +1,41 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEditor;
+using UnityEngine;
+using UnityEngine.Networking;
+using UnityEngine.UI;
+
+
+
+//Apply to button and image obj
+
+public class FileExplorer : MonoBehaviour
+{
+    string path;
+    public RawImage rawImage;
+
+    [Obsolete]
+    public void OpenFileExplorer()
+    {
+        path = EditorUtility.OpenFilePanel("images .png", "", "png");
+        StartCoroutine(GetTexture());
+    }
+
+    [Obsolete]
+    IEnumerator GetTexture()
+    {
+        UnityWebRequest www = UnityWebRequestTexture.GetTexture("file:///" + path);
+
+        if(www.isNetworkError || www.isHttpError)
+        {
+            Debug.Log(www.error);
+        }
+        else
+        {
+            Texture myTexture = ((DownloadHandlerTexture)www.downloadHandler).texture;
+            rawImage.texture = myTexture;
+        }
+        yield return www.SendWebRequest();
+    }    
+}
