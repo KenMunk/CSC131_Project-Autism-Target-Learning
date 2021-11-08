@@ -200,6 +200,10 @@ PrefabInstance:
       propertyPath: targetScene
       value: 110_GuardianModeMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 8317730058844343418, guid: 684b3a5fac381664cbd72216b0cf6ae6, type: 3}
+      propertyPath: m_Name
+      value: LoginButton
+      objectReference: {fileID: 0}
     - target: {fileID: 8441089805119234872, guid: 684b3a5fac381664cbd72216b0cf6ae6, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
