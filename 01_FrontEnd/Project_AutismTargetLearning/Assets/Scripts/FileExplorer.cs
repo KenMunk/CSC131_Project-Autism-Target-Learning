@@ -6,8 +6,6 @@ using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
 
-
-
 //Apply to button and image obj
 
 public class FileExplorer : MonoBehaviour
@@ -17,8 +15,8 @@ public class FileExplorer : MonoBehaviour
 
     public void OpenFileExplorer()
     {
-        path = EditorUtility.OpenFilePanel("images .png", "", "png");
-        StartCoroutine(GetTexture());
+        //path = EditorUtility.OpenFilePanel("images .png", "", "png");
+        //StartCoroutine(GetTexture());
     }
 
 
