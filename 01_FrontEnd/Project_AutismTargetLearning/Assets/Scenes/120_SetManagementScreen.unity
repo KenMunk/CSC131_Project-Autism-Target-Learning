@@ -178,5 +178,73 @@ PrefabInstance:
       propertyPath: m_Name
       value: SetManager_Prefab
       objectReference: {fileID: 0}
+    - target: {fileID: 3559157047028541506, guid: 0ca2d3bf399c55e46bb7c590470a7365, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3559157047028541506, guid: 0ca2d3bf399c55e46bb7c590470a7365, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3559157047028541506, guid: 0ca2d3bf399c55e46bb7c590470a7365, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 254.34998
+      objectReference: {fileID: 0}
+    - target: {fileID: 3559157047028541506, guid: 0ca2d3bf399c55e46bb7c590470a7365, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -200
+      objectReference: {fileID: 0}
+    - target: {fileID: 3559157047737994626, guid: 0ca2d3bf399c55e46bb7c590470a7365, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3559157047832523367, guid: 0ca2d3bf399c55e46bb7c590470a7365, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3559157047832523367, guid: 0ca2d3bf399c55e46bb7c590470a7365, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3559157048276382754, guid: 0ca2d3bf399c55e46bb7c590470a7365, type: 3}
+      propertyPath: targetScene
+      value: 121_SetEditorScreen
+      objectReference: {fileID: 0}
+    - target: {fileID: 3559157048276382755, guid: 0ca2d3bf399c55e46bb7c590470a7365, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3559157048397534464, guid: 0ca2d3bf399c55e46bb7c590470a7365, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3559157048397534464, guid: 0ca2d3bf399c55e46bb7c590470a7365, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3559157048397534464, guid: 0ca2d3bf399c55e46bb7c590470a7365, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -150
+      objectReference: {fileID: 0}
+    - target: {fileID: 3559157048397534471, guid: 0ca2d3bf399c55e46bb7c590470a7365, type: 3}
+      propertyPath: targetScene
+      value: 110_GuardianModeMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 3559157048417981719, guid: 0ca2d3bf399c55e46bb7c590470a7365, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3559157048417981719, guid: 0ca2d3bf399c55e46bb7c590470a7365, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3559157048417981719, guid: 0ca2d3bf399c55e46bb7c590470a7365, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 159.16998
+      objectReference: {fileID: 0}
+    - target: {fileID: 3559157048417981719, guid: 0ca2d3bf399c55e46bb7c590470a7365, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ca2d3bf399c55e46bb7c590470a7365, type: 3}
