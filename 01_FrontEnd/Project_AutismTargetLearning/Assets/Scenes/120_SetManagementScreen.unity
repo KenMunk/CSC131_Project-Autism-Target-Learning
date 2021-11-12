@@ -206,6 +206,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3559157048276382754, guid: 0ca2d3bf399c55e46bb7c590470a7365, type: 3}
+      propertyPath: targetScene
+      value: 121_SetEditorScreen
+      objectReference: {fileID: 0}
     - target: {fileID: 3559157048276382755, guid: 0ca2d3bf399c55e46bb7c590470a7365, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
