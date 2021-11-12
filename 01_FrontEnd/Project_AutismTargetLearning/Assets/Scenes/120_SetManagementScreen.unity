@@ -222,6 +222,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -150
       objectReference: {fileID: 0}
+    - target: {fileID: 3559157048397534471, guid: 0ca2d3bf399c55e46bb7c590470a7365, type: 3}
+      propertyPath: targetScene
+      value: 110_GuardianModeMenu
+      objectReference: {fileID: 0}
     - target: {fileID: 3559157048417981719, guid: 0ca2d3bf399c55e46bb7c590470a7365, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0.5
