@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class AutoDisplay : MonoBehaviour
@@ -27,14 +28,21 @@ public class AutoDisplay : MonoBehaviour
         //check if a target set has already been selected
         if(targetSet == null)
         {
-            //check if the set transporter exists
-            GameObject setTransporter = GameObject.Find("SetTransporter");
-            if (setTransporter != null)
+            try
             {
-                //if the set transporter exists then get the set
-                setTransporter.SendMessage("getSet", new Message(gameObject, null));
+                //check if the set transporter exists
+                GameObject setTransporter = GameObject.Find("SetTransporter");
+                if (setTransporter != null)
+                {
+                    //if the set transporter exists then get the set
+                    setTransporter.SendMessage("getSet", new Message(gameObject, null));
+                }
+                else
+                {
+                    setError.SetActive(true);
+                }
             }
-            else
+            catch (Exception e)
             {
                 setError.SetActive(true);
             }
