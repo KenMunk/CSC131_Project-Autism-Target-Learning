@@ -16,21 +16,27 @@ public class ImageDisplay : MonoBehaviour
 
     private Sprite detectedImage;
 
-    public Vector2 dimensionMultiplier = Vector2.one;
+    public Vector2 dimensionMultiplier;
 
     public Vector2 originalDimensions;
+
+    //just in case the desired dimensions are going to be different
+    public bool automatic = true;
 
     // Start is called before the first frame update
     void Start()
     {
-        RectTransform thisTransform = gameObject.GetComponent<RectTransform>();
-        if(thisTransform != null)
+        if (automatic == true)
         {
-            this.originalDimensions = new Vector2(thisTransform.rect.width, thisTransform.rect.height);
-        }
-        else
-        {
-            Debug.LogError("ERROR: object missing recttransform", gameObject);
+            RectTransform thisTransform = gameObject.GetComponent<RectTransform>();
+            if (thisTransform != null)
+            {
+                this.originalDimensions = new Vector2(thisTransform.rect.width, thisTransform.rect.height);
+            }
+            else
+            {
+                Debug.LogError("ERROR: object missing recttransform", gameObject);
+            }
         }
     }
 
@@ -47,46 +53,51 @@ public class ImageDisplay : MonoBehaviour
     }
 
     //Making it possible to pass an event that assigns the image for this object
-    public void setImage(object image)
+    public void setDisplayImage(Sprite image)
     {
-        if (image.GetType() == targetImage.GetType())
-        {
-            this.targetImage = (Sprite)image;
-        }
-        else
-        {
-            Debug.LogError("Invalid object passed", this);
-        }
+        this.targetImage = (Sprite)image;
+
+        
+    }
+
+    public void setOriginalDimensions(Vector2 dimensions)
+    {
+        this.originalDimensions = dimensions;
     }
 
     public void updateGameobjectImage()
     {
         Image thisImage = gameObject.GetComponent<Image>();
 
-        if(thisImage == null)
+        if(thisImage != null)
         {
             thisImage.sprite = this.targetImage;
             this.detectedImage = this.targetImage;
 
-            this.updateDimensions();
+            this.updateMultipliers();
 
             RectTransform thisRectTransform = gameObject.GetComponent<RectTransform>();
-            thisRectTransform.sizeDelta = this.originalDimensions * this.dimensionMultiplier;
+
+            Vector2 newDimensions = this.originalDimensions;
+            newDimensions.x *= this.dimensionMultiplier.x;
+            newDimensions.y *= this.dimensionMultiplier.y;
+
+            thisRectTransform.sizeDelta = newDimensions;
         }
     }
 
-    public void updateDimensions()
+    public void updateMultipliers()
     {
         if(this.targetImage != null)
         {
             this.dimensionMultiplier = new Vector2(1, 1);
-            if(this.targetImage.rect.width >= this.targetImage.rect.height)
+            if(this.targetImage.textureRect.width >= this.targetImage.textureRect.height)
             {
-                this.dimensionMultiplier.x = this.targetImage.rect.height / this.targetImage.rect.width;
+                this.dimensionMultiplier.y = this.targetImage.textureRect.height / this.targetImage.textureRect.width;
             }
             else
             {
-                this.dimensionMultiplier.x = this.targetImage.rect.width / this.targetImage.rect.height;
+                this.dimensionMultiplier.x = this.targetImage.textureRect.width / this.targetImage.textureRect.height;
             }
         }
     }
