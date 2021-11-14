@@ -331,6 +331,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 542093387}
+  - component: {fileID: 542093388}
   m_Layer: 5
   m_Name: ImageDisplayTester
   m_TagString: Untagged
@@ -357,6 +358,26 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &542093388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 542093386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84a42f62cf5c36644beb2e533f7b1bba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  images:
+  - {fileID: 21300000, guid: 101ad86801e599f4796b6fecbb43829e, type: 3}
+  - {fileID: 21300000, guid: 8536b4698004b074dbb29fd8ab546b7a, type: 3}
+  - {fileID: 21300000, guid: 65817654a41d4e94b9aa34d08f191ce9, type: 3}
+  - {fileID: 21300000, guid: c0ede5c95c8f8a441b981ffea5a65661, type: 3}
+  currentImageID: 0
+  targetImage: {fileID: 1930043735}
+  ticks: 0
 --- !u!1001 &547043498
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -418,4 +439,9 @@ PrefabInstance:
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3080500514033566541, guid: 857504110f7d26744ad00c3b52f529e2, type: 3}
   m_PrefabInstance: {fileID: 547043498}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1930043735 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1259130331821935043, guid: 61353bfbfc9503c40a2b037c67ea6146, type: 3}
+  m_PrefabInstance: {fileID: 151967597}
   m_PrefabAsset: {fileID: 0}
