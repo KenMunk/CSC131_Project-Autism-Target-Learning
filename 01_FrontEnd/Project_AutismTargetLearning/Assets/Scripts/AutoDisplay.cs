@@ -78,7 +78,20 @@ public class AutoDisplay : MonoBehaviour
             this.tileSideLength = rowHeight - 50;
 
             //increase the rows until the columns are under the aspect ratio desireds
+
         }
+    }
+
+    public float determineAspectRatio(int rows, int columns, float rowHeight)
+    {
+        float outputAspectRatio = 1;
+
+        float rowLength = columns * rowHeight;
+
+        outputAspectRatio = rowLength / (rows * rowHeight);
+
+        return (outputAspectRatio);
+
     }
 
     public void rotateTargets()
