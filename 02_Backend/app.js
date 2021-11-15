@@ -1,5 +1,3 @@
-const http = require('http');
-let GlobalUnityInstance = null;
 const express = require('express');
 const app = express();
 
