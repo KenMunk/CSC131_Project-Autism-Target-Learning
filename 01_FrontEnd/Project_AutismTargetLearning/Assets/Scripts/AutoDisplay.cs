@@ -14,11 +14,14 @@ public class AutoDisplay : MonoBehaviour
 
     public GameObject TargetViewerPrefab;
 
+    public List<GameObject> ViewerTiles = new List<GameObject>();
+
     public float desiredPadding = 50;
     public float tileSideLength = 500;
     public Rect targetViewingSpace;
-    public int rows = 1;
-    public int columns = 1;
+
+    public int tableRows = 1;
+    public int tableColumns = 1;
     
     // Start is called before the first frame update
     void Start()
@@ -75,14 +78,39 @@ public class AutoDisplay : MonoBehaviour
             int rows = 1;
             int columns = this.targetSet.GetList().Count;
             float rowHeight = this.targetViewingSpace.height / rows;
-            this.tileSideLength = rowHeight - 50;
+            this.tileSideLength = rowHeight - this.desiredPadding;
 
+            float tempAspectRatio = determineAspectRatio(rows, columns, rowHeight);
             //increase the rows until the columns are under the aspect ratio desireds
+            while (tempAspectRatio > this.aspectRatio)
+            {
+                //first try to shrink the size of the images until they can be folded over or until they meet the aspect ratio requirements
+                while(tempAspectRatio > this.aspectRatio && rowHeight > updateRowHeight(rows+1, this.targetViewingSpace.height)){
+
+                    rowHeight -= 1;
+                    this.tileSideLength = updateTileSquare(rowHeight, this.desiredPadding/2);
+                    tempAspectRatio = determineAspectRatio(rows, columns, rowHeight);
+
+                }
+
+                if(tempAspectRatio > this.aspectRatio)
+                {
+                    rows++;
+                    columns = Mathf.CeilToInt(this.targetSet.GetList().Count / rows);
+                    rowHeight = updateRowHeight(rows, this.targetViewingSpace.height);
+                    this.tileSideLength = updateTileSquare(rowHeight, this.desiredPadding / 2);
+                    tempAspectRatio = determineAspectRatio(rows, columns, rowHeight);
+                }
+            }
+
+            this.tableRows = rows;
+            this.tableColumns = columns;
+
 
         }
     }
 
-    public float determineAspectRatio(int rows, int columns, float rowHeight)
+    public static float determineAspectRatio(int rows, int columns, float rowHeight)
     {
         float outputAspectRatio = 1;
 
@@ -92,6 +120,19 @@ public class AutoDisplay : MonoBehaviour
 
         return (outputAspectRatio);
 
+    }
+
+    public static float updateRowHeight(int rows, float windowHeight)
+    {
+        float rowHeight = windowHeight / rows;
+        return (rowHeight);
+
+    }
+
+    public static float updateTileSquare(float rowHeight, float paddingThickness)
+    {
+        float outputTileSide = rowHeight - (2 * paddingThickness);
+        return (outputTileSide);
     }
 
     public void rotateTargets()
