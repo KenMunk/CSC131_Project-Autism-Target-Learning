@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
 
-
+[System.Serializable]//makes public variables visible in the editor
 public class Set
 {
     // Set class contains a List of Targets, with each Target at an index, and a string that
@@ -13,16 +13,29 @@ public class Set
     // The List is set up here, along with a SetName that may or may not need to be used. 
     // SetName could maybe describe which child the set is being used for? Or possibly a 
     // description of which targets are in the set? 
-    private List<Target> set { get; set; }
-    private string SetName { get; set; }
+    public List<Target> set { get; set; }
+    public string SetName { get; set; }
 
     // SUMMARY
     // Creates a new List of Targets, of course without any Targets.
     // /SUMMARY
     public Set()
     {
-        set = new List<Target>();
+        this.set = new List<Target>();
     }
+
+    //Added 2021-11-16 Kenneth Munk
+    /// <summary>
+    /// Instantiates a new set based on the name and set of targets
+    /// </summary>
+    /// <param name="name"></param>
+    /// <param name="newSet"></param>
+    public Set(string name, List<Target> newSet)
+    {
+        this.set = newSet;
+        this.SetName = name;
+    }
+
     // SUMMARY
     // Creating a List from Json
     // Fixed error with implicitly converting
@@ -42,13 +55,13 @@ public class Set
     // /SUMMARY
     public string AddToSet(Target target, int index)
     {
-        if (set.Contains(target))
+        if (this.set.Contains(target))
         {
             return "Target already in set";
         }
         else
         {
-            set.Insert(index, target); 
+            this.set.Insert(index, target); 
             return "Target added to set at index " + index;
         }
     }
@@ -60,10 +73,10 @@ public class Set
     // /SUMMARY
     public string RemoveFromSet(Target target)
     {
-        if (set.Contains(target))
+        if (this.set.Contains(target))
         {
-            int index = set.IndexOf(target);
-            set.Remove(target);
+            int index = this.set.IndexOf(target);
+            this.set.Remove(target);
             return "Removed Target at index " + index;
         }
         else
@@ -78,7 +91,7 @@ public class Set
     // /SUMMARY
     public List<Target> GetList()
     {
-        return set;
+        return this.set;
     }
 
     // SUMMARY
@@ -94,7 +107,7 @@ public class Set
     // /SUMMARY
     public override string ToString()
     {
-        string output = JsonUtility.ToJson(set);
+        string output = JsonUtility.ToJson(this.set);
 
         Debug.LogFormat($"Object converted to json with result = {output}");
 

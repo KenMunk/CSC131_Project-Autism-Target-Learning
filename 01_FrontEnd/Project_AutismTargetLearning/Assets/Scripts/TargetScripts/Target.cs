@@ -5,7 +5,8 @@ using UnityEngine;
 /// <summary>
 /// Contains target name and target image path and destination type
 /// </summary>
-/// 
+///
+[System.Serializable]
 public class Target
 {
     /**
@@ -15,11 +16,11 @@ public class Target
      * 
      */
 
-
-    private string name { get; set; }
-    private string path { get; set; }
-    private Sprite sprite { get; set; }
-    private DesinationTypes destinationType { get; set; }
+    
+    public string name;
+    public string path;
+    public Sprite sprite;
+    private DesinationTypes destinationType = DesinationTypes.NULL;
 
     /// <summary>
     /// Creates a new instance of target data
@@ -31,7 +32,7 @@ public class Target
     {
         this.setDefault();
         //Prevent character confusion in the name
-        for(int i = 0; i< name.Length; i++)
+        for(int i = 0; i< name.ToCharArray().Length; i++)
         {
             switch (name.ToCharArray()[i])
             {
@@ -108,8 +109,8 @@ public class Target
     /// </summary>
     public void setDefault()
     {
-        this.name = null;
-        this.path = null;
+        this.name = "";
+        this.path = "";
         this.sprite = null;
         this.destinationType = DesinationTypes.NULL;
     }

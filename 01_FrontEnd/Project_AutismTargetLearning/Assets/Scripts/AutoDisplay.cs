@@ -3,18 +3,22 @@ using System.Collections.Generic;
 using System;
 using UnityEngine;
 
+[System.Serializable]//makes public variables visible in the editor
 public class AutoDisplay : MonoBehaviour
 {
     private float aspectRatio = 0;
 
-    public Set targetSet = null;
+    public Set targetSet;
     private bool requestSent = false;
 
     public GameObject setError;
 
     public GameObject TargetViewerPrefab;
 
+    GameObject setTransporter;
+
     public List<GameObject> ViewerTiles = new List<GameObject>();
+    public bool tilesPrepared = false;
 
     public float desiredPadding = 50;
     public float tileSideLength = 500;
@@ -22,6 +26,7 @@ public class AutoDisplay : MonoBehaviour
 
     public int tableRows = 1;
     public int tableColumns = 1;
+    public bool layoutDefined = false;
     
     // Start is called before the first frame update
     void Start()
@@ -43,12 +48,12 @@ public class AutoDisplay : MonoBehaviour
             try
             {
                 //check if the set transporter exists
-                GameObject setTransporter = GameObject.Find("SetTransporter");
+                this.setTransporter = GameObject.Find("SetTransporter"); //current issue set transporter is not being found
                 if (setTransporter != null)
                 {
                     //if the set transporter exists then get the set
-                    setTransporter.SendMessage("getSet", new Message(gameObject, null));
-                    requestSent = true;
+                    setTransporter.SendMessage("getSet", new Message(gameObject,""));
+                    setError.SetActive(false);
                 }
                 else
                 {
@@ -61,11 +66,24 @@ public class AutoDisplay : MonoBehaviour
                 setError.SetActive(true);
             }
         }
+        else if (!this.layoutDefined)
+        {
+            this.determineSetLayout();
+        }
+        else if(this.ViewerTiles.Count < 1)
+        {
+            this.deployTile();
+
+        }
+        else if (!this.tilesPrepared)
+        {
+        }
     }
 
     public void receiveSet(Set data)
     {
         this.targetSet = data;
+        requestSent = true;
     }
 
     public void determineSetLayout()
@@ -108,6 +126,7 @@ public class AutoDisplay : MonoBehaviour
 
 
         }
+        this.layoutDefined = true;
     }
 
     public static float determineAspectRatio(int rows, int columns, float rowHeight)
@@ -133,6 +152,24 @@ public class AutoDisplay : MonoBehaviour
     {
         float outputTileSide = rowHeight - (2 * paddingThickness);
         return (outputTileSide);
+    }
+
+    public void deployTile()
+    {
+        if(this.ViewerTiles.Count < this.targetSet.GetList().Count)
+        {
+            int cursor = this.ViewerTiles.Count;
+            int currentColumn = (cursor % this.tableColumns);
+            int currentRow = (cursor-currentColumn)/this.tableColumns;
+
+            Vector2 startingOffsets = new Vector2((this.targetViewingSpace.width/2) - (this.tileSideLength/2),
+                                                  (this.targetViewingSpace.height / 2) - (this.tileSideLength / 2));
+
+            GameObject newTile = Instantiate(TargetViewerPrefab, gameObject.transform);
+            newTile.transform.localPosition = new Vector3(startingOffsets.x - (this.tileSideLength * currentColumn),
+                                                          startingOffsets.y - (this.tileSideLength * currentRow), 
+                                                          0);
+        }
     }
 
     public void rotateTargets()

@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class SetCarrier : MonoBehaviour
 {
-    private Set setData = null;
+    public Set setData;
 
     void Awake() 
     {
@@ -30,7 +31,15 @@ public class SetCarrier : MonoBehaviour
 
     public void getSet(Message data)
     {
+        /*
+        if(this.setData != null)
+        {
+            data.sendReply("receiveSet", this.setData);
+            Debug.LogWarningFormat($"sending {data.getSender().name} this set {this.setData}");
+        }//*/
+
         data.sendReply("receiveSet", this.setData);
+        Debug.LogWarningFormat($"sending {data.getSender().name} this set {this.setData}");
     }
 
     public void eraseCarrier()

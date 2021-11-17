@@ -149,3 +149,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   setError: {fileID: 7861546368847112946}
+  TargetViewerPrefab: {fileID: 1259130331821935043, guid: 61353bfbfc9503c40a2b037c67ea6146, type: 3}
+  ViewerTiles: []
+  desiredPadding: 50
+  tileSideLength: 500
+  targetViewingSpace:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 0
+    height: 0
+  tableRows: 1
+  tableColumns: 1

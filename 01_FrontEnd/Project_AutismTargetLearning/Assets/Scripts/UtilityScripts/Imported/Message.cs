@@ -24,8 +24,16 @@ public class Message
     public Message(GameObject _sender, object _data)
     {
         this.sender = (GameObject)Temp.Obj(_sender);
-        this.data = Temp.Obj(_data);
-        this.dataType = _data.GetType();
+        if(_data != null)
+        {
+            this.data = Temp.Obj(_data);
+            this.dataType = _data.GetType();
+        }
+        else
+        {
+            this.data = null;
+            this.dataType = null;
+        }
     }
 
     public GameObject getSender()
@@ -35,12 +43,27 @@ public class Message
 
     public object getData()
     {
-        return (Temp.Obj(this.data));
+        if(this.data != null)
+        {
+            return (Temp.Obj(this.data));
+        }
+        else
+        {
+            return null;
+        }
+
     }
 
     public Type getType()
     {
-        return ((Type)Temp.Obj(this.dataType));
+        if(this.dataType != null)
+        {
+            return ((Type)Temp.Obj(this.dataType));
+        }
+        else
+        {
+            return (null);
+        }
     }
 
     public void sendReply(string command, object _data)
