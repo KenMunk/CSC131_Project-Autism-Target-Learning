@@ -9,7 +9,7 @@ public class SetCarrier : MonoBehaviour
 
     void Awake() 
     {
-        DontDestroyOnLoad(gameObject);
+        
     }
 
     // Start is called before the first frame update
