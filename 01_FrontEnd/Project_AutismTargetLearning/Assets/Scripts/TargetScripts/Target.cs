@@ -6,7 +6,6 @@ using UnityEngine;
 /// Contains target name and target image path and destination type
 /// </summary>
 /// 
-[System.Serializable]
 public class Target
 {
     /**
@@ -19,6 +18,7 @@ public class Target
 
     private string name { get; set; }
     private string path { get; set; }
+    private Sprite sprite { get; set; }
     private DesinationTypes destinationType { get; set; }
 
     /// <summary>
@@ -29,6 +29,7 @@ public class Target
     /// <param name="type">type of path destination for target</param>
     public Target(string name, string path, DesinationTypes type)
     {
+        this.setDefault();
         //Prevent character confusion in the name
         for(int i = 0; i< name.Length; i++)
         {
@@ -74,6 +75,7 @@ public class Target
     /// <param name="json"></param>
     public Target(string json)
     {
+        this.setDefault();
         Target newTarget = JsonUtility.FromJson<Target>(json);
         this.name = newTarget.getName();
         this.path = newTarget.getPath();
@@ -82,8 +84,33 @@ public class Target
 
     public Target()
     {
+        this.setDefault();
+    }
+
+    //Added 2021-11-16 -- Kenneth Munk
+    /// <summary>
+    /// Initializes a new target with only the name and sprite
+    /// Path enumeration is null
+    /// Path is null
+    /// </summary>
+    /// <param name="name"></param>
+    /// <param name="image"></param>
+    public Target(string name, Sprite image)
+    {
+        this.setDefault();
+        this.name = name;
+        this.sprite = image;
+    }
+
+    //Added 2021-11-16 -- Kenneth Munk
+    /// <summary>
+    /// Initializes default values for all entries
+    /// </summary>
+    public void setDefault()
+    {
         this.name = null;
         this.path = null;
+        this.sprite = null;
         this.destinationType = DesinationTypes.NULL;
     }
 
@@ -125,6 +152,26 @@ public class Target
         Debug.LogFormat($"Object converted to json with result = {output}");
 
         return(output);
+    }
+
+    //New addition 2021-11-16 -- Kenneth Munk
+    /// <summary>
+    /// Returns the sprite for the target if one is available, returns null if none is present
+    /// </summary>
+    /// <returns></returns>
+    public Sprite getSprite()
+    {
+        return this.sprite;
+    }
+
+    public void setSprite(Sprite image)
+    {
+        this.sprite = image;
+    }
+
+    public bool hasSprite()
+    {
+        return (this.sprite != null);
     }
 
 
