@@ -43,28 +43,18 @@ public class AutoDisplay : MonoBehaviour
     void Update()
     {
         //check if a target set has already been selected
-        if(targetSet == null && !requestSent)
+        if(this.setTransporter == null)
         {
-            try
-            {
-                //check if the set transporter exists
-                this.setTransporter = GameObject.Find("SetTransporter"); //current issue set transporter is not being found
-                if (setTransporter != null)
-                {
-                    //if the set transporter exists then get the set
-                    setTransporter.SendMessage("getSet", new Message(gameObject,""));
-                    setError.SetActive(false);
-                }
-                else
-                {
-                    setError.SetActive(true);
-                }
-            }
-            catch (Exception e)
-            {
-                Debug.LogFormat($"Exception detected: {e}");
-                setError.SetActive(true);
-            }
+            //check if the set transporter exists
+            this.setTransporter = GameObject.Find("SetTransporter"); //current issue set transporter is not being found
+            setError.SetActive(true);
+        }
+        else if(!requestSent)
+        {
+
+            //if the set transporter exists then get the set
+            setTransporter.SendMessage("getSet", new Message(gameObject, ""));
+            setError.SetActive(true);
         }
         else if (!this.layoutDefined)
         {
