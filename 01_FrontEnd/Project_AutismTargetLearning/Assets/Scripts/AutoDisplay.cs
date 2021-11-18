@@ -166,8 +166,8 @@ public class AutoDisplay : MonoBehaviour
             int currentColumn = (cursor % this.tableColumns);
             int currentRow = (cursor-currentColumn)/this.tableColumns;
 
-            Vector2 startingOffsets = new Vector2(-((this.tileSideLength + this.desiredPadding)*this.tableColumns / 2) + ((this.tileSideLength+this.desiredPadding)/2),
-                                                  ((this.targetViewingSpace.height / 2) - ((this.tileSideLength + this.desiredPadding) / 2)));
+            Vector2 startingOffsets = new Vector2(-((this.tileSideLength + this.desiredPadding)*this.tableColumns / 2) + ((this.tileSideLength+this.desiredPadding * 2) /2),
+                                                  ((this.targetViewingSpace.height / 2) - ((this.tileSideLength + this.desiredPadding*2) / 2)));
 
             GameObject newTile = Instantiate(TargetViewerPrefab, gameObject.transform);
             newTile.transform.localPosition = new Vector3(startingOffsets.x + (this.tileSideLength * currentColumn), 
