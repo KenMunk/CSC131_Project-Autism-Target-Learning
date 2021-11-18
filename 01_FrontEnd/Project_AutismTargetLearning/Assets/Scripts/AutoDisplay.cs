@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System;
 using UnityEngine;
 
-[System.Serializable]//makes public variables visible in the editor
+//[System.Serializable]//makes public variables visible in the editor
 public class AutoDisplay : MonoBehaviour
 {
     private float aspectRatio = 0;
@@ -15,9 +15,10 @@ public class AutoDisplay : MonoBehaviour
 
     public GameObject TargetViewerPrefab;
 
-    GameObject setTransporter;
+    public GameObject setTransporter;
 
     public List<GameObject> ViewerTiles = new List<GameObject>();
+    public int cursor = 0;
     public bool tilesPrepared = false;
 
     public float desiredPadding = 50;
@@ -53,27 +54,35 @@ public class AutoDisplay : MonoBehaviour
         {
 
             //if the set transporter exists then get the set
-            setTransporter.SendMessage("getSet", new Message(gameObject, ""));
+            this.setTransporter.SendMessage("getSet", gameObject);
             setError.SetActive(true);
         }
         else if (!this.layoutDefined)
         {
             this.determineSetLayout();
+            setError.SetActive(false);
         }
-        else if(this.ViewerTiles.Count < 1)
+        else if(this.ViewerTiles.Count < this.targetSet.GetList().Count)
         {
             this.deployTile();
 
         }
         else if (!this.tilesPrepared)
         {
+            this.setImage(this.cursor);
+            this.cursor++;
+            if(this.cursor >= this.ViewerTiles.Count)
+            {
+                this.tilesPrepared = true;
+            }
         }
     }
 
     public void receiveSet(Set data)
     {
+        Debug.LogFormat($"AutoDisplay receiving set: {data.GetName()}");
         this.targetSet = data;
-        requestSent = true;
+        requestSent = this.targetSet != null;
     }
 
     public void determineSetLayout()
@@ -88,37 +97,42 @@ public class AutoDisplay : MonoBehaviour
             float rowHeight = this.targetViewingSpace.height / rows;
             this.tileSideLength = rowHeight - this.desiredPadding;
 
-            float tempAspectRatio = determineAspectRatio(rows, columns, rowHeight);
+            //float tempAspectRatio = determineAspectRatio(rows, columns, rowHeight);
+            float tempWidth = rowHeight * columns;
+            float tempHeight = rowHeight * rows;
             //increase the rows until the columns are under the aspect ratio desireds
-            while (tempAspectRatio > this.aspectRatio)
+            while ((tempWidth > this.targetViewingSpace.width || tempHeight > this.targetViewingSpace.height))
             {
                 //first try to shrink the size of the images until they can be folded over or until they meet the aspect ratio requirements
-                while(tempAspectRatio > this.aspectRatio && rowHeight > updateRowHeight(rows+1, this.targetViewingSpace.height)){
+                while((tempWidth > this.targetViewingSpace.width || tempHeight > this.targetViewingSpace.height) && rowHeight > updateRowHeight(rows+1, this.targetViewingSpace.height)){
 
                     rowHeight -= 1;
                     this.tileSideLength = updateTileSquare(rowHeight, this.desiredPadding/2);
-                    tempAspectRatio = determineAspectRatio(rows, columns, rowHeight);
+                    //tempAspectRatio = determineAspectRatio(rows, columns, rowHeight);
+                    tempWidth = rowHeight * columns;
+                    tempHeight = rowHeight * rows;
 
                 }
 
-                if(tempAspectRatio > this.aspectRatio)
+                if(tempWidth > this.targetViewingSpace.width || tempHeight > this.targetViewingSpace.height)
                 {
                     rows++;
-                    columns = Mathf.CeilToInt(this.targetSet.GetList().Count / rows);
+                    columns = Mathf.CeilToInt(this.targetSet.GetList().Count / (float)rows);
                     rowHeight = updateRowHeight(rows, this.targetViewingSpace.height);
                     this.tileSideLength = updateTileSquare(rowHeight, this.desiredPadding / 2);
-                    tempAspectRatio = determineAspectRatio(rows, columns, rowHeight);
+                    //tempAspectRatio = determineAspectRatio(rows, columns, rowHeight);
                 }
             }
 
             this.tableRows = rows;
             this.tableColumns = columns;
-
+            //this.targetViewingSpace.width = this.tableColumns * this.tileSideLength;
 
         }
         this.layoutDefined = true;
     }
 
+    /*//Disabled due to lack of use
     public static float determineAspectRatio(int rows, int columns, float rowHeight)
     {
         float outputAspectRatio = 1;
@@ -129,7 +143,7 @@ public class AutoDisplay : MonoBehaviour
 
         return (outputAspectRatio);
 
-    }
+    }//*/
 
     public static float updateRowHeight(int rows, float windowHeight)
     {
@@ -152,13 +166,28 @@ public class AutoDisplay : MonoBehaviour
             int currentColumn = (cursor % this.tableColumns);
             int currentRow = (cursor-currentColumn)/this.tableColumns;
 
-            Vector2 startingOffsets = new Vector2((this.targetViewingSpace.width/2) - (this.tileSideLength/2),
-                                                  (this.targetViewingSpace.height / 2) - (this.tileSideLength / 2));
+            Vector2 startingOffsets = new Vector2(-((this.tileSideLength + this.desiredPadding)*this.tableColumns / 2) + ((this.tileSideLength+this.desiredPadding)/2),
+                                                  ((this.targetViewingSpace.height / 2) - ((this.tileSideLength + this.desiredPadding) / 2)));
 
             GameObject newTile = Instantiate(TargetViewerPrefab, gameObject.transform);
-            newTile.transform.localPosition = new Vector3(startingOffsets.x - (this.tileSideLength * currentColumn),
-                                                          startingOffsets.y - (this.tileSideLength * currentRow), 
+            newTile.transform.localPosition = new Vector3(startingOffsets.x + (this.tileSideLength * currentColumn), 
+                                                          startingOffsets.y - (this.tileSideLength * currentRow),
                                                           0);
+            this.ViewerTiles.Add(newTile);
+        }
+    }
+
+    public void setImage(int cursor)
+    {
+        Sprite targetSprite = this.targetSet.GetList()[cursor].getSprite();
+        this.ViewerTiles[cursor].SendMessage("setOriginalDimensions", new Vector2(this.tileSideLength-this.desiredPadding, this.tileSideLength - this.desiredPadding));
+        if (targetSprite != null)
+        {
+            this.ViewerTiles[cursor].SendMessage("setDisplayImage", targetSprite);
+        }
+        else
+        {
+            Debug.LogErrorFormat($"ERROR: Target {this.targetSet.GetList()[cursor].getName()} does not have a sprite assigned\n local files not supported, please use app resource files until further notice");
         }
     }
 

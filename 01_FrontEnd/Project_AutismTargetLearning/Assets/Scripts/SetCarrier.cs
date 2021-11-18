@@ -5,7 +5,9 @@ using UnityEngine;
 [System.Serializable]
 public class SetCarrier : MonoBehaviour
 {
-    public Set setData;
+    public Set setData { get; set; }
+
+    public GameObject lastReceiver;
 
     void Awake() 
     {
@@ -29,7 +31,7 @@ public class SetCarrier : MonoBehaviour
         this.setData = data;
     }
 
-    public void getSet(Message data)
+    public void getSet(GameObject toRequestor)
     {
         /*
         if(this.setData != null)
@@ -37,9 +39,11 @@ public class SetCarrier : MonoBehaviour
             data.sendReply("receiveSet", this.setData);
             Debug.LogWarningFormat($"sending {data.getSender().name} this set {this.setData}");
         }//*/
-
-        data.sendReply("receiveSet", this.setData);
-        Debug.LogWarningFormat($"sending {data.getSender().name} this set {this.setData}");
+        Set tempSet = this.setData;
+        this.lastReceiver = toRequestor;
+        toRequestor.SendMessage("receiveSet", tempSet);
+        Debug.LogFormat($"Sending set: {this.setData.GetName()}");
+        //Debug.LogWarningFormat($"sending {toRequestor.name} this set {this.setData}");
     }
 
     public void eraseCarrier()

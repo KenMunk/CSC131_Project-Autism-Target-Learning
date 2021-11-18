@@ -458,6 +458,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1219670986}
     m_Modifications:
+    - target: {fileID: 7046605065601947466, guid: d98e810410a48924eaac9eb2224d307c, type: 3}
+      propertyPath: desiredPadding
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 8431812939621472189, guid: d98e810410a48924eaac9eb2224d307c, type: 3}
       propertyPath: m_Name
       value: SetDisplay
@@ -492,11 +496,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8462644983112094992, guid: d98e810410a48924eaac9eb2224d307c, type: 3}
       propertyPath: m_SizeDelta.x
-      value: -100
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8462644983112094992, guid: d98e810410a48924eaac9eb2224d307c, type: 3}
       propertyPath: m_SizeDelta.y
-      value: -250
+      value: -150
       objectReference: {fileID: 0}
     - target: {fileID: 8462644983112094992, guid: d98e810410a48924eaac9eb2224d307c, type: 3}
       propertyPath: m_LocalPosition.x
