@@ -12,6 +12,7 @@ public class SetEditor : MonoBehaviour
     public GameObject prefabTarget;
     private GameObject Highlighted;
     public EventSystem eventSystem;
+    public GameObject numberofTargets;
 
 
     // Start is called before the first frame update
@@ -29,6 +30,8 @@ public class SetEditor : MonoBehaviour
     void Update()
     {
         getSelectedButton();
+        getTargets();
+
     }
 
     public void addPicturetoSet()
@@ -85,5 +88,10 @@ public class SetEditor : MonoBehaviour
         {
 
         }
+    }
+
+    public void getTargets()
+    {
+        numberofTargets.GetComponent<Text>().text = "Targets: " + currentSet.transform.childCount.ToString();
     }
 }
