@@ -19,6 +19,7 @@ public class AutoDisplay : MonoBehaviour
 
     public List<GameObject> ViewerTiles = new List<GameObject>();
     public int cursor = 0;
+    public int turns = 0;
     public bool tilesPrepared = false;
 
     public float desiredPadding = 50;
@@ -179,7 +180,7 @@ public class AutoDisplay : MonoBehaviour
 
     public void setImage(int cursor)
     {
-        Sprite targetSprite = this.targetSet.GetList()[cursor].getSprite();
+        Sprite targetSprite = this.targetSet.GetList()[(this.cursor - this.turns)%this.targetSet.GetList().Count].getSprite();
         this.ViewerTiles[cursor].SendMessage("setOriginalDimensions", new Vector2(this.tileSideLength-this.desiredPadding, this.tileSideLength - this.desiredPadding));
         if (targetSprite != null)
         {
@@ -193,6 +194,8 @@ public class AutoDisplay : MonoBehaviour
 
     public void rotateTargets()
     {
-
+        this.turns++;
+        this.cursor = 0;
+        this.tilesPrepared = false;
     }
 }

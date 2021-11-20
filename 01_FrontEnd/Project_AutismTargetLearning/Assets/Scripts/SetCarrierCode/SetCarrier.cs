@@ -39,10 +39,13 @@ public class SetCarrier : MonoBehaviour
             data.sendReply("receiveSet", this.setData);
             Debug.LogWarningFormat($"sending {data.getSender().name} this set {this.setData}");
         }//*/
-        Set tempSet = this.setData;
-        this.lastReceiver = toRequestor;
-        toRequestor.SendMessage("receiveSet", tempSet);
-        Debug.LogFormat($"Sending set: {this.setData.GetName()}");
+        if(this.setData != null)
+        {
+            Set tempSet = this.setData;
+            this.lastReceiver = toRequestor;
+            toRequestor.SendMessage("receiveSet", tempSet);
+            Debug.LogFormat($"Sending set: {this.setData.GetName()}");
+        }
         //Debug.LogWarningFormat($"sending {toRequestor.name} this set {this.setData}");
     }
 
