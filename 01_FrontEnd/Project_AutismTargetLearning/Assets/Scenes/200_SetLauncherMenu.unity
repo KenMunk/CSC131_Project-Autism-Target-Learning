@@ -899,8 +899,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2000763764}
   m_HandleRect: {fileID: 2000763763}
   m_Direction: 2
-  m_Value: 0.000000077716166
-  m_Size: 0.71690583
+  m_Value: 1
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -984,7 +984,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -196, y: -248.60504}
+  m_AnchoredPosition: {x: -196, y: -487.29712}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &507288280
@@ -1102,7 +1102,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -113.29001, y: -111.5}
+  m_AnchoredPosition: {x: -113.29004, y: -111.5}
   m_SizeDelta: {x: 166.58, y: 163}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &593973653
@@ -2391,6 +2391,7 @@ GameObject:
   - component: {fileID: 1723541523}
   - component: {fileID: 1723541522}
   - component: {fileID: 1723541525}
+  - component: {fileID: 1723541526}
   m_Layer: 5
   m_Name: Set 1
   m_TagString: Untagged
@@ -2525,6 +2526,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Panel: {fileID: 264495945}
+--- !u!114 &1723541526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1723541520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56c132391c6dbc14398b8f892ad9a1cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actions:
+  - target: {fileID: 0}
+    action: 
+  clickCoolDown: 20
 --- !u!1001 &1916309521
 PrefabInstance:
   m_ObjectHideFlags: 0

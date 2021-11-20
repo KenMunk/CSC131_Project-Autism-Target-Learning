@@ -133,10 +133,14 @@ PrefabInstance:
     - target: {fileID: 497217745589681729, guid: 55f4542b2055a2c45bc363d45b8a1f0b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1458683799569135039}
     - target: {fileID: 497217745589681729, guid: 55f4542b2055a2c45bc363d45b8a1f0b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: 
+      value: rotateTargets
+      objectReference: {fileID: 0}
+    - target: {fileID: 497217745589681729, guid: 55f4542b2055a2c45bc363d45b8a1f0b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: AutoDisplay, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 2046746948781058031, guid: 55f4542b2055a2c45bc363d45b8a1f0b, type: 3}
       propertyPath: m_Pivot.x
@@ -446,3 +450,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d98e810410a48924eaac9eb2224d307c, type: 3}
+--- !u!114 &1458683799569135039 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7046605065601947466, guid: d98e810410a48924eaac9eb2224d307c, type: 3}
+  m_PrefabInstance: {fileID: 1458683799569135038}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af4d8709cf099eb4f930c43118bbbfd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

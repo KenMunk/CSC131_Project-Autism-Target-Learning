@@ -162,7 +162,14 @@ public class Target
     /// <returns></returns>
     public Sprite getSprite()
     {
-        return this.sprite;
+        if(this.sprite != null)
+        {
+            return this.sprite;
+        }
+        else
+        {
+            throw (new UnityEngine.UnityException("Error no code in place to handle local resource loading for sprites at the moment");
+        }
     }
 
     public void setSprite(Sprite image)
