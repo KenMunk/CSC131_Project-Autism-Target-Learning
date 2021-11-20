@@ -168,7 +168,7 @@ public class Target
         }
         else
         {
-            throw (new UnityEngine.UnityException("Error no code in place to handle local resource loading for sprites at the moment");
+            throw (new UnityEngine.UnityException("Error no code in place to handle local resource loading for sprites at the moment"));
         }
     }
 
