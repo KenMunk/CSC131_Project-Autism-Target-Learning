@@ -9,7 +9,7 @@ public class AutoDisplay : MonoBehaviour
     private float aspectRatio = 0;
 
     public Set targetSet;
-    private bool requestSent = false;
+    //private bool requestSent = false;
 
     public GameObject setError;
 
