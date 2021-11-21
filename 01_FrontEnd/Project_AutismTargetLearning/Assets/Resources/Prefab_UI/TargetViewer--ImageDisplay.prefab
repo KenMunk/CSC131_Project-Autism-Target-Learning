@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7337399746301286710}
   - component: {fileID: 1586099388796028500}
   m_Layer: 5
-  m_Name: TargetViewer
+  m_Name: TargetViewer--ImageDisplay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -11,12 +11,14 @@ public class SetPreview : MonoBehaviour
     public List<GameObject> targetsPreviewed = new List<GameObject>();
     public float rotationLength = 600;
     private int stage = 0;
+    private float height = 400;
 
     private int deploymentCursor = 0;
     // Start is called before the first frame update
     void Start()
     {
         this.TargetPreviewPrefab = Resources.Load<GameObject>("Prefab_UI/TargetViewer");
+        this.height = gameObject.GetComponent<RectTransform>().rect.height;
     }
 
     // Update is called once per frame
@@ -45,7 +47,7 @@ public class SetPreview : MonoBehaviour
         {
             GameObject previewImage = Instantiate(this.TargetPreviewPrefab);
             previewImage.name = string.Format($"{this.previewSet.GetName()}_Image_{this.deploymentCursor}");
-            previewImage.transform.localPosition = new Vector3(150 + (325 * deploymentCursor), -200, 0);
+            previewImage.transform.localPosition = new Vector3(150 + (325 * deploymentCursor), (-2)*((this.height - 150)/3), 0);
             this.deploymentCursor++;
 
             if(this.deploymentCursor < this.previewSet.GetList().Count)
@@ -63,6 +65,7 @@ public class SetPreview : MonoBehaviour
         if(this.deploymentCursor < this.previewSet.GetList().Count && this.stage == 1)
         {
             this.targetsPreviewed[this.deploymentCursor].SendMessage("setDisplayImage", this.previewSet.GetList()[this.deploymentCursor]);
+            this.targetsPreviewed[this.deploymentCursor].SendMessage("setOriginalDimensions", new Vector2(this.height - 150, this.height - 150));
             this.deploymentCursor++;
 
             if(this.deploymentCursor < this.previewSet.GetList().Count)

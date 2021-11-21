@@ -10,11 +10,11 @@ public class Set
     // Set class contains a List of Targets, with each Target at an index, and a string that
     // describes something about the Set.
 
-    // The List is set up here, along with a SetName that may or may not need to be used. 
-    // SetName could maybe describe which child the set is being used for? Or possibly a 
+    // The List is set up here, along with a name that may or may not need to be used. 
+    // name could maybe describe which child the set is being used for? Or possibly a 
     // description of which targets are in the set? 
     public List<Target> set { get; set; }
-    public string SetName { get; set; }
+    public string name { get; set; }
 
     // SUMMARY
     // Creates a new List of Targets, of course without any Targets.
@@ -33,7 +33,7 @@ public class Set
     public Set(string name, List<Target> newSet)
     {
         this.set = newSet;
-        this.SetName = name;
+        this.name = name;
     }
 
     // SUMMARY
@@ -44,7 +44,7 @@ public class Set
     {
         Set NewSet = JsonUtility.FromJson<Set>(json);
 	    this.set = NewSet.GetList();
-	    this.SetName = NewSet.GetName();
+	    this.name = NewSet.GetName();
     }
 
     // SUMMARY
@@ -99,7 +99,17 @@ public class Set
     // /SUMMARY
     public string GetName()
     {
-        return SetName;
+        return name;
+    }
+
+    /// <summary>
+    /// Added 2021-11-21 by Kenneth Munk
+    /// Updates the name of a preexisting set
+    /// </summary>
+    /// <param name="newName"></param>
+    public void setName(string newName)
+    {
+        this.name = newName;
     }
 
     // SUMMARY
