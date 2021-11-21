@@ -14,6 +14,8 @@ public class SetPreview : MonoBehaviour
     private float height = 400;
 
     private int deploymentCursor = 0;
+
+    private bool allowSetup = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,9 +26,18 @@ public class SetPreview : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        this.deployImage();
-        this.sendSprites();
-        this.moveTargets();
+        if (this.allowSetup)
+        {
+            this.deployImage();
+            this.sendSprites();
+            this.moveTargets();
+        }
+        
+    }
+
+    public void setSetupStatus(bool newStatus)
+    {
+        this.allowSetup = newStatus;
     }
 
     public void setPreviewSet(Set setToPreview)
