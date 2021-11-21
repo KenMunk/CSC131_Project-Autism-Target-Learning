@@ -7,7 +7,7 @@ public static class TargetGenerator
     public static Target[] targets;
     public static Sprite[] images;
 
-    public static void getTargets()
+    public static void loadTargets()
     {
         images = Resources.LoadAll<Sprite>("TargetImages");
         targets = new Target[images.Length];
