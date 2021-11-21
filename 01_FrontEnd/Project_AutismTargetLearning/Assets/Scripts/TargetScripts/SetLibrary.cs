@@ -7,6 +7,7 @@ public static class SetLibrary
 
     public static List<Set> sets = new List<Set>();
     public static string fileName = "UserSets";
+    public static int selectedSet = -1;
 
     public static void loadSets()
     {
@@ -40,5 +41,31 @@ public static class SetLibrary
         sets.Add(cloneSet);
     }
 
+    public static Set getSet(int setID)
+    {
+        return (sets[setID]);
+    }
+
+    public static void resetSelection()
+    {
+        selectedSet = -1;
+    }
+
+    public static void selectSet(int setID)
+    {
+        if(sets.Count > 0)
+        {
+            selectedSet = setID % sets.Count;
+        }
+        else
+        {
+            selectedSet = -1;
+        }
+    }
+
+    public static int selection()
+    {
+        return selectedSet;
+    }
     
 }

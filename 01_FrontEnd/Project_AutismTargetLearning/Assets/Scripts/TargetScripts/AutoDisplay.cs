@@ -44,21 +44,28 @@ public class AutoDisplay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /* Disabling this section of code due to deprecation -- Kenneth Munk
         //check if a target set has already been selected
-        if(this.setTransporter == null)
+        if (this.setTransporter == null)
         {
             //check if the set transporter exists
             this.setTransporter = GameObject.Find("SetTransporter"); //current issue set transporter is not being found
             setError.SetActive(true);
         }
-        else if(!requestSent)
+        else if (!requestSent)
         {
 
             //if the set transporter exists then get the set
             this.setTransporter.SendMessage("getSet", gameObject);
             setError.SetActive(true);
         }
-        else if (!this.layoutDefined)
+        else if (!this.layoutDefined) { }//*/
+        
+        if(SetLibrary.selection() > -1)
+        {
+            this.targetSet = SetLibrary.getSet(SetLibrary.selection());
+        }
+        if (!this.layoutDefined)
         {
             this.determineSetLayout();
             setError.SetActive(false);
@@ -79,12 +86,13 @@ public class AutoDisplay : MonoBehaviour
         }
     }
 
+    /*disabling this code since it became deprecated --Kenneth Munk
     public void receiveSet(Set data)
     {
         Debug.LogFormat($"AutoDisplay receiving set: {data.GetName()}");
         this.targetSet = data;
         requestSent = this.targetSet != null;
-    }
+    }//*/
 
     public void determineSetLayout()
     {
