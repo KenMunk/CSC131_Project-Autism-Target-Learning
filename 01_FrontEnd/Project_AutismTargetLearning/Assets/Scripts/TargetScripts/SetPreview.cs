@@ -117,19 +117,19 @@ public class SetPreview : MonoBehaviour
 
     public void startRotating()
     {
-        setPreviewSetPrefabToRotate(gameObject.name);
+        setPreviewSetPrefabToRotate(this.setID);
     }
 
-    public static string previewSetPrefabToRotate = "";
+    public static int previewSetPrefabToRotate = -1;
 
-    public static void setPreviewSetPrefabToRotate(string previewSetCodeName)
+    public static void setPreviewSetPrefabToRotate(int previewSetCodeName)
     {
         previewSetPrefabToRotate = previewSetCodeName;
     }
 
     public void moveTargets()
     {
-        if(gameObject.name == previewSetPrefabToRotate)
+        if(this.setID == previewSetPrefabToRotate)
         {
             for (int i = 0; i < this.targetsPreviewed.Count; i++)
             {
