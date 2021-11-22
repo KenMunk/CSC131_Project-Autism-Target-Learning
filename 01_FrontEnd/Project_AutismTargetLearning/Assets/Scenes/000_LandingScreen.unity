@@ -134,6 +134,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LandingScene_Prefab
       objectReference: {fileID: 0}
+    - target: {fileID: 3643381493600992569, guid: 9ace8cbcc5382d741988cdf8a2cf3eb4, type: 3}
+      propertyPath: targetScene
+      value: 200_SetLauncherMenu_02
+      objectReference: {fileID: 0}
     - target: {fileID: 4335684311400297685, guid: 9ace8cbcc5382d741988cdf8a2cf3eb4, type: 3}
       propertyPath: targetScene
       value: 300_AutoExit

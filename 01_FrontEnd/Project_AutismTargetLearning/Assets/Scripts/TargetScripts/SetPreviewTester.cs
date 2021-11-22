@@ -5,6 +5,7 @@ using UnityEngine;
 public class SetPreviewTester : MonoBehaviour
 {
     public bool testReady = false;
+    public bool allowTests = true;
     public GameObject previewContent;
 
     // Start is called before the first frame update
@@ -16,7 +17,7 @@ public class SetPreviewTester : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!this.testReady)
+        if (!this.testReady && this.allowTests)
         {
             int setsNeeded = Random.Range((int)5, (int)25);
 
