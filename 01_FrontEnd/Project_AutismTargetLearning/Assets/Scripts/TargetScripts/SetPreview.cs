@@ -34,17 +34,24 @@ public class SetPreview : MonoBehaviour
             this.height = gameObject.GetComponent<RectTransform>().rect.height;
             this.width = gameObject.transform.parent.GetComponent<RectTransform>().rect.width;
         }
-        else if (this.previewSet != null && this.TargetPreviewPrefab != null && this.targetsPreviewed.Count < this.previewSet.GetList().Count)
+        else if (this.previewSet != null && this.TargetPreviewPrefab != null && this.stage < 2)
         {
-            Debug.LogFormat($"Loading data for target {this.deploymentCursor}");
-            this.deployImage();
-            this.sendSprites();
+            //Debug.LogFormat($"Loading data for target {this.deploymentCursor}");
+            if(this.stage == 0)
+            {
+                this.deployImage();
+            }
+            else if(this.stage == 1 && this.deploymentCursor < this.previewSet.GetList().Count)
+            {
+                Debug.LogFormat($"Attempting to update the sprite for {this.targetsPreviewed[this.deploymentCursor].name}");
+                this.sendSprites();
+            }
 
             this.deploymentCursor++;
-            this.deploymentCursor %= this.previewSet.GetList().Count;
         }
         else if(this.targetsPreviewed.Count == this.previewSet.GetList().Count && this.stage == 2)
         {
+            Debug.LogFormat($"Attempting to rotate preview for set {gameObject.name}");
             this.moveTargets();
         }
         
@@ -78,13 +85,15 @@ public class SetPreview : MonoBehaviour
         {
             GameObject previewImage = Instantiate(this.TargetPreviewPrefab,gameObject.transform);
             previewImage.name = string.Format($"{this.previewSet.GetName()}_Image_{this.targetsPreviewed.Count}");
-            previewImage.transform.localPosition = new Vector3((325 * deploymentCursor)-(this.width/2) + ((this.height)/2), -((this.height)/2), 0);
+            previewImage.transform.localPosition = new Vector3((325 * this.deploymentCursor)+(this.width/2)-(this.height/2), 0, 0);
 
             this.targetsPreviewed.Add(previewImage);
 
             if (this.targetsPreviewed.Count == this.previewSet.GetList().Count)
             {
+                Debug.LogFormat($"Moving to sprite populating of preview for set {this.previewSet.GetName()}");
                 this.stage = 1;
+                this.deploymentCursor = 0;
             }
 
         }
@@ -95,6 +104,7 @@ public class SetPreview : MonoBehaviour
     {
         if(this.targetsPreviewed.Count == this.previewSet.GetList().Count && this.stage == 1)
         {
+            Debug.LogFormat($"Sending information for target {this.targetsPreviewed[this.deploymentCursor].name}");
             this.targetsPreviewed[this.deploymentCursor].SendMessage("setDisplayImage", this.previewSet.GetList()[this.deploymentCursor].getSprite());
             this.targetsPreviewed[this.deploymentCursor].SendMessage("setOriginalDimensions", new Vector2(325, 325));
 
