@@ -5,6 +5,8 @@ using UnityEngine;
 public class SetPreviewTester : MonoBehaviour
 {
     public bool testReady = false;
+    public GameObject previewContent;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,7 +27,16 @@ public class SetPreviewTester : MonoBehaviour
                 SetLibrary.addSet(TargetGenerator.generateRandomSet(string.Format($"Random_Set_{i}")));
             }
 
+
             this.testReady = true;
+            this.isReady(previewContent);
         }
+    }
+
+    public void isReady(GameObject notifyGameObject)
+    {
+        Debug.LogFormat($"Test set count is {SetLibrary.sets.Count}");
+        Debug.LogFormat($"Turning off debug mode");
+        notifyGameObject.SendMessage("disableDebugMode");
     }
 }

@@ -12,24 +12,39 @@ public class SetPreview : MonoBehaviour
     public float rotationLength = 600;
     private int stage = 0;
     private float height = 400;
+    private float width = 1000;
 
     private int deploymentCursor = 0;
+
+    public int setID = -1;
 
     private bool allowSetup = false;
     // Start is called before the first frame update
     void Start()
     {
-        this.TargetPreviewPrefab = Resources.Load<GameObject>("Prefab_UI/TargetViewer");
-        this.height = gameObject.GetComponent<RectTransform>().rect.height;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (this.allowSetup)
+        if(this.TargetPreviewPrefab == null)
         {
+            this.TargetPreviewPrefab = Resources.Load<GameObject>("Prefab_UI/TargetViewer--ImageDisplay");
+            this.height = gameObject.GetComponent<RectTransform>().rect.height;
+            this.width = gameObject.transform.parent.GetComponent<RectTransform>().rect.width;
+        }
+        else if (this.previewSet != null && this.TargetPreviewPrefab != null && this.targetsPreviewed.Count < this.previewSet.GetList().Count)
+        {
+            Debug.LogFormat($"Loading data for target {this.deploymentCursor}");
             this.deployImage();
             this.sendSprites();
+
+            this.deploymentCursor++;
+            this.deploymentCursor %= this.previewSet.GetList().Count;
+        }
+        else if(this.targetsPreviewed.Count == this.previewSet.GetList().Count && this.stage == 2)
+        {
             this.moveTargets();
         }
         
@@ -46,6 +61,11 @@ public class SetPreview : MonoBehaviour
         this.rotationLength = 325 * this.previewSet.GetList().Count;
     }
 
+    public void setSetID(int id)
+    {
+        this.setID = id;
+    }
+
     public bool readyToPreview()
     {
         return (this.TargetPreviewPrefab != null && this.previewSet != null);
@@ -54,32 +74,31 @@ public class SetPreview : MonoBehaviour
 
     public void deployImage()
     {
-        if (this.deploymentCursor < this.previewSet.GetList().Count && this.stage == 0)
+        if (this.targetsPreviewed.Count < this.previewSet.GetList().Count && this.stage == 0)
         {
-            GameObject previewImage = Instantiate(this.TargetPreviewPrefab);
-            previewImage.name = string.Format($"{this.previewSet.GetName()}_Image_{this.deploymentCursor}");
-            previewImage.transform.localPosition = new Vector3(150 + (325 * deploymentCursor), (-2)*((this.height - 150)/3), 0);
-            this.deploymentCursor++;
+            GameObject previewImage = Instantiate(this.TargetPreviewPrefab,gameObject.transform);
+            previewImage.name = string.Format($"{this.previewSet.GetName()}_Image_{this.targetsPreviewed.Count}");
+            previewImage.transform.localPosition = new Vector3((325 * deploymentCursor)-(this.width/2) + ((this.height)/2), -((this.height)/2), 0);
 
-            if(this.deploymentCursor < this.previewSet.GetList().Count)
+            this.targetsPreviewed.Add(previewImage);
+
+            if (this.targetsPreviewed.Count == this.previewSet.GetList().Count)
             {
                 this.stage = 1;
             }
 
-            this.targetsPreviewed.Add(previewImage);
         }
         
     }
 
     public void sendSprites()
     {
-        if(this.deploymentCursor < this.previewSet.GetList().Count && this.stage == 1)
+        if(this.targetsPreviewed.Count == this.previewSet.GetList().Count && this.stage == 1)
         {
-            this.targetsPreviewed[this.deploymentCursor].SendMessage("setDisplayImage", this.previewSet.GetList()[this.deploymentCursor]);
-            this.targetsPreviewed[this.deploymentCursor].SendMessage("setOriginalDimensions", new Vector2(this.height - 150, this.height - 150));
-            this.deploymentCursor++;
+            this.targetsPreviewed[this.deploymentCursor].SendMessage("setDisplayImage", this.previewSet.GetList()[this.deploymentCursor].getSprite());
+            this.targetsPreviewed[this.deploymentCursor].SendMessage("setOriginalDimensions", new Vector2(325, 325));
 
-            if(this.deploymentCursor < this.previewSet.GetList().Count)
+            if(this.deploymentCursor == this.previewSet.GetList().Count -1)
             {
                 this.stage = 2;
             }
@@ -115,5 +134,10 @@ public class SetPreview : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void selectSet()
+    {
+        SetLibrary.selectSet(this.setID);
     }
 }

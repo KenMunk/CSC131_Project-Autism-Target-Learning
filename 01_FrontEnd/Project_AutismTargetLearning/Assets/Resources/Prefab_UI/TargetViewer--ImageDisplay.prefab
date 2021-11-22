@@ -88,3 +88,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3c3bff80189f3a40b34b5cd33747e48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetImage: {fileID: 21300000, guid: c8a0f48f612b38f4e9bf33fef195e7f0, type: 3}
+  dimensionMultiplier: {x: 0, y: 0}
+  originalDimensions: {x: 0, y: 0}
+  automatic: 1

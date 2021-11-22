@@ -188,7 +188,7 @@ public class AutoDisplay : MonoBehaviour
 
     public void setImage(int cursor)
     {
-        Sprite targetSprite = this.targetSet.GetList()[(this.cursor - this.turns)%this.targetSet.GetList().Count].getSprite();
+        Sprite targetSprite = this.targetSet.GetList()[(this.cursor + this.turns)%this.targetSet.GetList().Count].getSprite();
         this.ViewerTiles[cursor].SendMessage("setOriginalDimensions", new Vector2(this.tileSideLength-this.desiredPadding, this.tileSideLength - this.desiredPadding));
         if (targetSprite != null)
         {
