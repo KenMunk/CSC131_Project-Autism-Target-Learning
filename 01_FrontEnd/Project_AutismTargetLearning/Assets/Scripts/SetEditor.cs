@@ -47,6 +47,18 @@ public class SetEditor : MonoBehaviour
         }
     }
 
+    public void addPicturetoSet(Transform transform)
+    {
+        try
+        {
+            transform.SetParent(currentSet.transform);
+        }
+        catch
+        {
+
+        }
+    }
+
     public void removePictureFromSet()
     {
         try
@@ -93,5 +105,23 @@ public class SetEditor : MonoBehaviour
     public void getTargets()
     {
         numberofTargets.GetComponent<Text>().text = "Targets: " + currentSet.transform.childCount.ToString();
+    }
+
+    public void clearCurrentSet()
+    {
+        if (currentSet.transform.childCount > 0)
+        {
+            int count = currentSet.transform.childCount;
+            for (int i = 0; i < count; i++)
+            {
+                //Debug.LogFormat("Child: " + i.ToString());
+                Highlighted = currentSet.transform.GetChild(0).gameObject;
+                removePictureFromSet();
+            }
+        }
+        else
+        {
+
+        }
     }
 }

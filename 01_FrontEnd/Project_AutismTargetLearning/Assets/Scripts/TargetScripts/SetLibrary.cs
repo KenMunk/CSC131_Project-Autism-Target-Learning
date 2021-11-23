@@ -68,4 +68,43 @@ public static class SetLibrary
         return selectedSet;
     }
     
+    public static Set findSet(string setName)
+    {
+        Set tempSet = new Set();
+        if (sets.Count > 0)
+        {
+            foreach (Set newSet in sets)
+            {
+                if (newSet.name == setName)
+                {
+                    return newSet;
+                }
+            }
+        }
+        return tempSet;
+    }
+
+    public static int findSetIndex(Set set)
+    {
+        for(int i = 0; i < sets.Count; i++)
+        {
+            if (sets[i] == set)
+            {
+                return i;
+            }
+        }
+        return 0;
+    }
+
+    public static int findSetIndex(string setName)
+    {
+        for (int i = 0; i < sets.Count; i++)
+        {
+            if (sets[i].name == setName)
+            {
+                return i;
+            }
+        }
+        return 0;
+    }
 }
