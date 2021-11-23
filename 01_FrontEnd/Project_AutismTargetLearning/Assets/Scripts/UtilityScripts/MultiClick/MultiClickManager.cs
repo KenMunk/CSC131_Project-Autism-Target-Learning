@@ -7,7 +7,7 @@ public class MultiClickManager : MonoBehaviour
     public List<MultiClickAction> actions = new List<MultiClickAction>();
 
     private int clickTimer = 0;
-    public int clickCoolDown = 20;
+    public int clickCoolDown = 50;
 
     public int clicks = 0;
 

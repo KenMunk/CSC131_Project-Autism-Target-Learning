@@ -56,6 +56,7 @@ public class ImageDisplay : MonoBehaviour
     public void setDisplayImage(Sprite image)
     {
         this.targetImage = (Sprite)image;
+        gameObject.name = image.name;
 
         
     }
