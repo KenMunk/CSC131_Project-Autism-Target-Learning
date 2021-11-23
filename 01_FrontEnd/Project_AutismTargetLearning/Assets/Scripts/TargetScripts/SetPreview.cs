@@ -11,10 +11,11 @@ public class SetPreview : MonoBehaviour
     public List<GameObject> targetsPreviewed = new List<GameObject>();
     public float rotationLength = 600;
     private int stage = 0;
-    private float height = 400;
-    private float width = 1000;
+    public float height = 400;
+    public float width;
 
-    private int deploymentCursor = 0;
+    public int deploymentCursor = 0;
+    public int spriteCursor = 0;
 
     public int setID = -1;
 
@@ -22,7 +23,8 @@ public class SetPreview : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
+        this.width = gameObject.GetComponent<RectTransform>().rect.width;
     }
 
     // Update is called once per frame
@@ -31,8 +33,6 @@ public class SetPreview : MonoBehaviour
         if(this.TargetPreviewPrefab == null)
         {
             this.TargetPreviewPrefab = Resources.Load<GameObject>("Prefab_UI/TargetViewer--ImageDisplay");
-            this.height = gameObject.GetComponent<RectTransform>().rect.height;
-            this.width = gameObject.transform.parent.GetComponent<RectTransform>().rect.width;
         }
         else if (this.previewSet != null && this.TargetPreviewPrefab != null && this.stage < 2)
         {
@@ -85,7 +85,8 @@ public class SetPreview : MonoBehaviour
         {
             GameObject previewImage = Instantiate(this.TargetPreviewPrefab,gameObject.transform);
             previewImage.name = string.Format($"{this.previewSet.GetName()}_Image_{this.targetsPreviewed.Count}");
-            previewImage.transform.localPosition = new Vector3((325 * this.deploymentCursor)+(this.width/2)-(this.height/2), 0, 0);
+            //previewImage.transform.localPosition = new Vector3(-(this.width/2), 0, 0);
+            previewImage.transform.localPosition = new Vector3((float)325*this.targetsPreviewed.Count, 0, 0);
 
             this.targetsPreviewed.Add(previewImage);
 
@@ -93,7 +94,7 @@ public class SetPreview : MonoBehaviour
             {
                 Debug.LogFormat($"Moving to sprite populating of preview for set {this.previewSet.GetName()}");
                 this.stage = 1;
-                this.deploymentCursor = 0;
+                this.deploymentCursor = -1;
             }
 
         }
@@ -111,6 +112,7 @@ public class SetPreview : MonoBehaviour
             if(this.deploymentCursor == this.previewSet.GetList().Count -1)
             {
                 this.stage = 2;
+                this.deploymentCursor = -1;
             }
         }
     }
@@ -140,7 +142,7 @@ public class SetPreview : MonoBehaviour
                 }
                 else if (currentPosition.x + 10 >= this.rotationLength)
                 {
-                    this.targetsPreviewed[i].transform.localPosition = new Vector3(-150, currentPosition.y, 0);
+                    this.targetsPreviewed[i].transform.localPosition = new Vector3(-325, currentPosition.y, 0);
                 }
             }
         }
@@ -148,6 +150,15 @@ public class SetPreview : MonoBehaviour
 
     public void selectSet()
     {
-        SetLibrary.selectSet(this.setID);
+        if(this.setID == previewSetPrefabToRotate)
+        {
+            gameObject.SendMessage("switchScene");
+            previewSetPrefabToRotate = -1;
+        }
+        else
+        {
+            this.startRotating();
+            SetLibrary.selectSet(this.setID);
+        }
     }
 }
