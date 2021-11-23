@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.EventSystems;
 
 public class SetSaver : MonoBehaviour
 {
@@ -11,7 +10,6 @@ public class SetSaver : MonoBehaviour
     public GameObject nameInputField;
     public GameObject SetSelector;
     public GameObject SetEditorScript;
-    public EventSystem eventSystem;
     private Dropdown Set_Dropdown;
     private InputField Name_Field;
     private SetEditor EditorScript;

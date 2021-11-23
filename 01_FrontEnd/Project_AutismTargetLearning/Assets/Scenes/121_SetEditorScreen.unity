@@ -3597,7 +3597,6 @@ MonoBehaviour:
   nameInputField: {fileID: 1476783003}
   SetSelector: {fileID: 1840969266}
   SetEditorScript: {fileID: 844423001}
-  eventSystem: {fileID: 0}
 --- !u!1 &1840969266
 GameObject:
   m_ObjectHideFlags: 0
@@ -4069,8 +4068,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 365.69, y: 414.5}
-  m_SizeDelta: {x: 271.38, y: 74.995}
+  m_AnchoredPosition: {x: 365.69, y: 377.88}
+  m_SizeDelta: {x: 271.38, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2143163655
 GameObject:
