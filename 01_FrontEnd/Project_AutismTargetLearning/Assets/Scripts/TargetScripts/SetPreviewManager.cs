@@ -13,7 +13,7 @@ public class SetPreviewManager : MonoBehaviour
 
     public RectTransform windowDimensions;
     private float existingWidth = 400;
-    private float existingHeight = 400;
+    //private float existingHeight = 400;
     // Start is called before the first frame update
     void Start()
     {
