@@ -31,7 +31,7 @@ public static class TargetGenerator
 
     public static Set generateRandomSet(string setName)
     {
-        int randomSetLength = Random.Range((int)3, (int)28);
+        int randomSetLength = Random.Range((int)3, (int)15);
         List<Target> setTargets = new List<Target>();
         for (int i = 0; i<randomSetLength; i++)
         {
