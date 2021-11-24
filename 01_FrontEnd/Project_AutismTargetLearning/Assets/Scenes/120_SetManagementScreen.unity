@@ -140,7 +140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b107480ca5b73be4eaa5bff72ab05fe9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetScene: sampleScene
+  targetScene: 220_DeleteSceneScreen
 --- !u!1001 &3559157047537458939
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -307,6 +307,18 @@ PrefabInstance:
     - target: {fileID: 3559157048397534471, guid: 0ca2d3bf399c55e46bb7c590470a7365, type: 3}
       propertyPath: targetScene
       value: 110_GuardianModeMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 3559157048417981718, guid: 0ca2d3bf399c55e46bb7c590470a7365, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 489402683}
+    - target: {fileID: 3559157048417981718, guid: 0ca2d3bf399c55e46bb7c590470a7365, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3559157048417981718, guid: 0ca2d3bf399c55e46bb7c590470a7365, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: switchScene
       objectReference: {fileID: 0}
     - target: {fileID: 3559157048417981719, guid: 0ca2d3bf399c55e46bb7c590470a7365, type: 3}
       propertyPath: m_AnchorMax.y

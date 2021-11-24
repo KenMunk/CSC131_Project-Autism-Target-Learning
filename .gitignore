@@ -77,3 +77,4 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 01_FrontEnd/Project_AutismTargetLearning/Assets/ConfigFiles/GoogleService-Info.plist
 01_FrontEnd/Project_AutismTargetLearning/Assets/ConfigFiles/GoogleService-Info.plist.meta
+05_TestBuilds/*

@@ -50,4 +50,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/DeleteSet.unity
     guid: 364fbb197595490468344e32ef331f25
+  - enabled: 1
+    path: Assets/Scenes/220_DeleteSceneScreen.unity
+    guid: f732b8bbd893602409fbcc0d588416a3
   m_configObjects: {}
