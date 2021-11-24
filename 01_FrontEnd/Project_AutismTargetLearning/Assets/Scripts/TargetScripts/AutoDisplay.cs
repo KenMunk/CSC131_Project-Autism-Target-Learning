@@ -113,7 +113,7 @@ public class AutoDisplay : MonoBehaviour
             while ((tempWidth > this.targetViewingSpace.width || tempHeight > this.targetViewingSpace.height))
             {
                 //first try to shrink the size of the images until they can be folded over or until they meet the aspect ratio requirements
-                while((tempWidth > this.targetViewingSpace.width || tempHeight > this.targetViewingSpace.height) && rowHeight > updateRowHeight(rows+1, this.targetViewingSpace.height)){
+                while((tempWidth > this.targetViewingSpace.width || tempHeight > this.targetViewingSpace.height) && rowHeight > updateRowHeight(rows+1, this.targetViewingSpace.height)+((updateRowHeight(rows + 1, this.targetViewingSpace.height)-rowHeight)/2)){
 
                     rowHeight -= 1;
                     this.tileSideLength = updateTileSquare(rowHeight, this.desiredPadding/2);
