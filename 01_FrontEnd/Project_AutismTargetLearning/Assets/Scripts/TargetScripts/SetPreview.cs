@@ -66,6 +66,7 @@ public class SetPreview : MonoBehaviour
     {
         this.previewSet = setToPreview;
         this.rotationLength = 325 * this.previewSet.GetList().Count;
+        gameObject.name = this.previewSet.GetName();
     }
 
     public void setSetID(int id)
