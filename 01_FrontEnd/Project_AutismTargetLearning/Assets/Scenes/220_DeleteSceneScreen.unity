@@ -453,6 +453,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2124334218}
     m_Modifications:
+    - target: {fileID: 924604218448009750, guid: 63730eea94ec0b446be1f5b6d41d61ac, type: 3}
+      propertyPath: allowTests
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4585547644447349496, guid: 63730eea94ec0b446be1f5b6d41d61ac, type: 3}
+      propertyPath: targetScene
+      value: DeleteSet
+      objectReference: {fileID: 0}
     - target: {fileID: 4761128921560813056, guid: 63730eea94ec0b446be1f5b6d41d61ac, type: 3}
       propertyPath: previewSetPrefab
       value: 

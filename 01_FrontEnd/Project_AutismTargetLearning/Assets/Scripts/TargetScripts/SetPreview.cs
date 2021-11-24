@@ -66,6 +66,7 @@ public class SetPreview : MonoBehaviour
     {
         this.previewSet = setToPreview;
         this.rotationLength = 325 * this.previewSet.GetList().Count;
+        gameObject.name = this.previewSet.GetName();
     }
 
     public void setSetID(int id)
@@ -152,8 +153,9 @@ public class SetPreview : MonoBehaviour
     {
         if(this.setID == previewSetPrefabToRotate)
         {
-            gameObject.SendMessage("switchScene");
             previewSetPrefabToRotate = -1;
+            gameObject.transform.parent.gameObject.SendMessage("setSelected");
+            //gameObject.SendMessage("switchScene");
         }
         else
         {

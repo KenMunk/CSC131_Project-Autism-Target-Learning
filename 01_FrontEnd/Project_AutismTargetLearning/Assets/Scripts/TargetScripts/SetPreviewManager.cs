@@ -4,20 +4,28 @@ using UnityEngine;
 
 public class SetPreviewManager : MonoBehaviour
 {
-    public bool debugMode = true;
+    public static bool debugMode = true;
     public int setCursor = 0;
 
     public GameObject previewSetPrefab;
 
     public List<GameObject> previewSets = new List<GameObject>();
+    public List<string> setNames = new List<string>();
+    public List<int> setIDs = new List<int>();
+    public bool doneLoading = false;
 
     public RectTransform windowDimensions;
     private float existingWidth = 400;
+
     //private float existingHeight = 400;
     // Start is called before the first frame update
     void Start()
     {
-        this.previewSetPrefab = Resources.Load<GameObject>("Prefab_UI/SetPreview");
+        SetPreview.previewSetPrefabToRotate = -1;
+        if (this.previewSetPrefab == null)
+        {
+            this.previewSetPrefab = Resources.Load<GameObject>("Prefab_UI/SetPreview");
+        }
         this.windowDimensions = gameObject.GetComponent<RectTransform>();
     }
 
@@ -25,7 +33,7 @@ public class SetPreviewManager : MonoBehaviour
     void Update()
     {
         //Debug.LogFormat($"Sets counted {SetLibrary.sets.Count}");
-        if(!debugMode && this.previewSets.Count < SetLibrary.sets.Count)
+        if(!debugMode && !this.doneLoading && this.previewSets.Count < SetLibrary.sets.Count)
         {
             //Debug.Log("PreviewStage2 detected");
             if ((float)425 * SetLibrary.sets.Count != this.windowDimensions.rect.height)
@@ -35,7 +43,7 @@ public class SetPreviewManager : MonoBehaviour
 
             this.deployPreviewSet();
         }
-        else if(this.previewSets.Count == SetLibrary.sets.Count && this.setCursor != SetLibrary.sets.Count)
+        else if(!this.doneLoading && this.previewSets.Count == SetLibrary.sets.Count && this.setCursor != SetLibrary.sets.Count)
         {
             this.prepareSet();
         }
@@ -54,11 +62,29 @@ public class SetPreviewManager : MonoBehaviour
         this.previewSets[this.setCursor].SendMessage("setSetID", this.setCursor);
         this.previewSets[this.setCursor].SendMessage("setSetupStatus", true);
 
+        this.setNames.Add(SetLibrary.sets[this.setCursor].name);
+        this.setIDs.Add(this.setCursor);
+
         this.setCursor++;
+        if(this.setCursor == SetLibrary.sets.Count)
+        {
+            this.doneLoading = true;
+            
+        }
     }
 
     public void disableDebugMode()
     {
-        this.debugMode = false;
+        debugMode = false;
+    }
+
+    public void setSelected()
+    {
+        while(previewSets.Count > 0)
+        {
+            Destroy(previewSets[0]);
+            previewSets.RemoveAt(0);
+        }
+        SendMessage("switchScene");
     }
 }

@@ -21,6 +21,6 @@ public class SetEraser : MonoBehaviour
     public void confirmAction()
     {
         SetLibrary.removeSet(SetLibrary.selectedSet);
-        SetLibrary.selectedSet = -1;
+        //SetLibrary.selectedSet = -1;
     }
 }

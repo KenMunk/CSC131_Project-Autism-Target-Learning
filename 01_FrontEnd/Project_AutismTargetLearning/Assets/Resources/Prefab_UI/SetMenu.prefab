@@ -121,7 +121,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 5227434157708270657}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.76
+  m_Size: 0.52
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -482,6 +482,7 @@ GameObject:
   - component: {fileID: 4493508177477727299}
   - component: {fileID: 4761128921560813056}
   - component: {fileID: 924604218448009750}
+  - component: {fileID: 4585547644447349496}
   m_Layer: 5
   m_Name: Content
   m_TagString: Untagged
@@ -524,6 +525,7 @@ MonoBehaviour:
   setCursor: 0
   previewSetPrefab: {fileID: 0}
   previewSets: []
+  setNames: []
   windowDimensions: {fileID: 0}
 --- !u!114 &924604218448009750
 MonoBehaviour:
@@ -540,3 +542,16 @@ MonoBehaviour:
   testReady: 0
   allowTests: 1
   previewContent: {fileID: 6607924520663230533}
+--- !u!114 &4585547644447349496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6607924520663230533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b107480ca5b73be4eaa5bff72ab05fe9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetScene: 210_SetDisplayScreen

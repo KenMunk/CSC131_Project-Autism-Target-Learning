@@ -31,7 +31,17 @@ public static class SetLibrary
 
     public static void removeSet(int setID)
     {
-        sets.RemoveAt(setID);
+        Set setToDelete = sets[selectedSet];
+        if (setID > -1)
+        {
+            setToDelete = sets[setID];
+        }
+        Debug.LogFormat($"Attempting to delete set {setToDelete.GetName()}");
+        while (findSetIndex(setToDelete) >= 0)
+        {
+            sets.Remove(setToDelete);
+        }
+        selectedSet = -1;
     }
 
     public static void cloneSet(int setID)
@@ -93,7 +103,7 @@ public static class SetLibrary
                 return i;
             }
         }
-        return 0;
+        return -1;
     }
 
     public static int findSetIndex(string setName)
@@ -105,6 +115,6 @@ public static class SetLibrary
                 return i;
             }
         }
-        return 0;
+        return -1;
     }
 }
