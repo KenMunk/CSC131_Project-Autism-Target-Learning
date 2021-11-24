@@ -39,6 +39,7 @@ public class SetPreviewManager : MonoBehaviour
             if ((float)425 * SetLibrary.sets.Count != this.windowDimensions.rect.height)
             {
                 gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(this.existingWidth, 425 * SetLibrary.sets.Count);
+                gameObject.transform.parent.gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(this.existingWidth, 425 * SetLibrary.sets.Count);
             }
 
             this.deployPreviewSet();

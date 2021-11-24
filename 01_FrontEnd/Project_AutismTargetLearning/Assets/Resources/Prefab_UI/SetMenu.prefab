@@ -521,11 +521,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cb177a0622ff8147924c8557e7326e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugMode: 1
   setCursor: 0
   previewSetPrefab: {fileID: 0}
   previewSets: []
   setNames: []
+  setIDs: 
+  doneLoading: 0
   windowDimensions: {fileID: 0}
 --- !u!114 &924604218448009750
 MonoBehaviour:
@@ -540,7 +541,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   testReady: 0
-  allowTests: 1
   previewContent: {fileID: 6607924520663230533}
 --- !u!114 &4585547644447349496
 MonoBehaviour:
