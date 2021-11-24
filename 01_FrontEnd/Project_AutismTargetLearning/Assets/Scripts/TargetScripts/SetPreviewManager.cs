@@ -17,7 +17,10 @@ public class SetPreviewManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        this.previewSetPrefab = Resources.Load<GameObject>("Prefab_UI/SetPreview");
+        if(this.previewSetPrefab == null)
+        {
+            this.previewSetPrefab = Resources.Load<GameObject>("Prefab_UI/SetPreview");
+        }
         this.windowDimensions = gameObject.GetComponent<RectTransform>();
     }
 

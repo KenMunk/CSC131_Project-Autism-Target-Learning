@@ -13,8 +13,19 @@ public class SetFile
         this.sets = sets;
     }
 
+    public SetFile(string jsonText)
+    {
+        SetFile temp = JsonUtility.FromJson<SetFile>(jsonText);
+        this.sets = temp.getSets();
+    }
+
     public List<Set> getSets()
     {
         return (this.sets);
+    }
+
+    public override string ToString()
+    {
+        return (JsonUtility.ToJson(this));
     }
 }
