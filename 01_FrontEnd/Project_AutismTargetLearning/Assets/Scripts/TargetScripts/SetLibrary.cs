@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
 
 public static class SetLibrary
 {
@@ -11,7 +12,12 @@ public static class SetLibrary
 
     public static void loadSets()
     {
-
+        try
+        {
+            Stream fileStream = File.Open(Application.persistentDataPath + "/" + fileName + ".setdata", FileMode.OpenOrCreate);
+            var binaryFormatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
+            
+        }
     }
 
     public static void saveSets()

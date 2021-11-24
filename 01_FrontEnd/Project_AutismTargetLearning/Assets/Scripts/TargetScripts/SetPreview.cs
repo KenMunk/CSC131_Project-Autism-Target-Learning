@@ -153,7 +153,7 @@ public class SetPreview : MonoBehaviour
     {
         if(this.setID == previewSetPrefabToRotate)
         {
-            previewSetPrefabToRotate = -1;
+            setPreviewSetPrefabToRotate(-1);
             gameObject.SendMessage("switchScene");
         }
         else
