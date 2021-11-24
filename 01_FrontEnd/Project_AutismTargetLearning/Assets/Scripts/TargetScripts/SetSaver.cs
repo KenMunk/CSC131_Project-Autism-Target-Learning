@@ -53,9 +53,6 @@ public class SetSaver : MonoBehaviour
         {
             Debug.LogFormat("Content does not contain any Targets", currentSetObject);
         }
-        
-        //Added 2021-11-23 -- Kenneth Munk -- Saving the set to file
-        SetLibrary.saveSets();
     }
 
     public bool isUnique(string setName)
@@ -97,7 +94,7 @@ public class SetSaver : MonoBehaviour
                 {
                     foreach(Transform transform in EditorScript.library.transform)
                     {
-                        if (target.sprite == transform.GetComponent<Image>().sprite.name)
+                        if (target.sprite.name == transform.GetComponent<Image>().sprite.name)
                         {
                             EditorScript.addPicturetoSet(transform);
                         }

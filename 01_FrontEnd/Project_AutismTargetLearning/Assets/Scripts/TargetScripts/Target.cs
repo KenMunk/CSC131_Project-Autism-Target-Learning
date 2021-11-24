@@ -19,7 +19,7 @@ public class Target
     
     public string name;
     public string path;
-    public string sprite;
+    public Sprite sprite;
     private DesinationTypes destinationType = DesinationTypes.NULL;
 
     /// <summary>
@@ -100,8 +100,7 @@ public class Target
     {
         this.setDefault();
         this.name = name;
-        this.destinationType = DesinationTypes.App;
-        this.setSprite(image);
+        this.sprite = image;
     }
 
     //Added 2021-11-16 -- Kenneth Munk
@@ -112,7 +111,7 @@ public class Target
     {
         this.name = "";
         this.path = "";
-        this.sprite = "";
+        this.sprite = null;
         this.destinationType = DesinationTypes.NULL;
     }
 
@@ -163,9 +162,9 @@ public class Target
     /// <returns></returns>
     public Sprite getSprite()
     {
-        if(this.sprite != "")
+        if(this.sprite != null)
         {
-            return Resources.Load<Sprite>("TargetImages/"+this.sprite);
+            return this.sprite;
         }
         else
         {
@@ -175,12 +174,12 @@ public class Target
 
     public void setSprite(Sprite image)
     {
-        this.sprite = image.name;
+        this.sprite = image;
     }
 
     public bool hasSprite()
     {
-        return (this.sprite != "");
+        return (this.sprite != null);
     }
 
 

@@ -121,7 +121,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 5227434157708270657}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.52
+  m_Size: 0.76
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -520,6 +520,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cb177a0622ff8147924c8557e7326e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  debugMode: 1
   setCursor: 0
   previewSetPrefab: {fileID: 0}
   previewSets: []
@@ -537,4 +538,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   testReady: 0
+  allowTests: 1
   previewContent: {fileID: 6607924520663230533}

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SetPreviewManager : MonoBehaviour
 {
-    public static bool debugMode = true;
+    public bool debugMode = true;
     public int setCursor = 0;
 
     public GameObject previewSetPrefab;
@@ -13,14 +13,11 @@ public class SetPreviewManager : MonoBehaviour
 
     public RectTransform windowDimensions;
     private float existingWidth = 400;
-    //private float existingHeight = 400;
+    private float existingHeight = 400;
     // Start is called before the first frame update
     void Start()
     {
-        if(this.previewSetPrefab == null)
-        {
-            this.previewSetPrefab = Resources.Load<GameObject>("Prefab_UI/SetPreview");
-        }
+        this.previewSetPrefab = Resources.Load<GameObject>("Prefab_UI/SetPreview");
         this.windowDimensions = gameObject.GetComponent<RectTransform>();
     }
 
@@ -30,14 +27,18 @@ public class SetPreviewManager : MonoBehaviour
         //Debug.LogFormat($"Sets counted {SetLibrary.sets.Count}");
         if(!debugMode && this.previewSets.Count < SetLibrary.sets.Count)
         {
+            //Debug.Log("PreviewStage2 detected");
+            if ((float)425 * SetLibrary.sets.Count != this.windowDimensions.rect.height)
+            {
+                gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(this.existingWidth, 425 * SetLibrary.sets.Count);
+            }
+
             this.deployPreviewSet();
         }
         else if(this.previewSets.Count == SetLibrary.sets.Count && this.setCursor != SetLibrary.sets.Count)
         {
             this.prepareSet();
         }
-        gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(this.existingWidth, 425 * SetLibrary.sets.Count);
-        gameObject.transform.parent.gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(this.existingWidth, 425 * SetLibrary.sets.Count);
     }
 
     public void deployPreviewSet()
@@ -58,6 +59,6 @@ public class SetPreviewManager : MonoBehaviour
 
     public void disableDebugMode()
     {
-        debugMode = false;
+        this.debugMode = false;
     }
 }

@@ -13,9 +13,7 @@ public class Set
     // The List is set up here, along with a name that may or may not need to be used. 
     // name could maybe describe which child the set is being used for? Or possibly a 
     // description of which targets are in the set? 
-    [SerializeField]
     public List<Target> set { get; set; }
-    [SerializeField]
     public string name { get; set; }
 
     // SUMMARY
