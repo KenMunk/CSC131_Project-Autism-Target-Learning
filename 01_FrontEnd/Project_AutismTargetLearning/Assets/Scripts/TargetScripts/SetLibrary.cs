@@ -10,19 +10,48 @@ public static class SetLibrary
     public static string fileName = "UserSets";
     public static int selectedSet = -1;
 
+    public static bool loadFailed = false;
+    public static bool saveFailed = false;
+
     public static void loadSets()
     {
         try
         {
-            Stream fileStream = File.Open(Application.persistentDataPath + "/" + fileName + ".setdata", FileMode.OpenOrCreate);
+            Stream fileStream = File.Open(dataPath(), FileMode.OpenOrCreate);
             var binaryFormatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
-            
+            SetFile tempFile = (SetFile)binaryFormatter.Deserialize(fileStream);
+            fileStream.Close();
+
+            sets = tempFile.getSets();
+
+            loadFailed = false;
+        }
+        finally
+        {
+            loadFailed = true;
         }
     }
 
     public static void saveSets()
     {
-        
+        try
+        {
+            Stream fileStream = File.Open(dataPath(), FileMode.OpenOrCreate, FileAccess.Write);
+            var binaryFormatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
+            SetFile tempFile = new SetFile(sets);
+            binaryFormatter.Serialize(fileStream, tempFile);
+
+            saveFailed = false;
+        }
+        finally
+        {
+            saveFailed = true;
+        }
+    }
+
+    public static string dataPath()
+    {
+        return (Application.persistentDataPath + "/" + fileName + ".setdata");
     }
 
     public static void updateSet(int setID, Set updatedSet)
