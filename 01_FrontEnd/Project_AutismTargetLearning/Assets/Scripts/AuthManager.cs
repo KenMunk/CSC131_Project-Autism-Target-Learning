@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 using Firebase;
 using Firebase.Auth;
 using TMPro;
@@ -111,7 +110,6 @@ public class AuthManager : MonoBehaviour
             Debug.LogFormat("User signed in successfully: {0} ({1})", User.DisplayName, User.Email);
             warningLoginText.text = "";
             confirmLoginText.text = "Logged In";
-            SceneManager.LoadScene("110_GuardianModeMenu");
         }
     }
 
@@ -189,7 +187,6 @@ public class AuthManager : MonoBehaviour
                         //Now return to login screen
                         //UIManager.instance.LoginScreen();
                         warningRegisterText.text = "Registered!";
-                        SceneManager.LoadScene("100_LoginScreen");
                     }
                 }
             }
