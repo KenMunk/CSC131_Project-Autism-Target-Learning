@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Firebase;
 using Firebase.Auth;
 using TMPro;
 
-public class NewBehaviourScript : MonoBehaviour
+public class AuthManager : MonoBehaviour
 {
 
     [Header("Firebase")]
@@ -15,17 +16,17 @@ public class NewBehaviourScript : MonoBehaviour
 
     //Login variables
     [Header("Login")]
-    public TMP_InputField emailLoginField;
-    public TMP_InputField passwordLoginField;
+    public InputField emailLoginField;
+    public InputField passwordLoginField;
     public TMP_Text warningLoginText;
     public TMP_Text confirmLoginText;
 
     //Register variables
     [Header("Register")]
-    public TMP_InputField usernameRegisterField;
-    public TMP_InputField emailRegisterField;
-    public TMP_InputField passwordRegisterField;
-    public TMP_InputField passwordRegisterVerifyField;
+    public InputField usernameRegisterField;
+    public InputField emailRegisterField;
+    public InputField passwordRegisterField;
+    public InputField passwordRegisterVerifyField;
     public TMP_Text warningRegisterText;
 
     void Awake()
@@ -96,7 +97,7 @@ public class NewBehaviourScript : MonoBehaviour
                     message = "Invalid Email";
                     break;
                 case AuthError.UserNotFound:
-                    message = "Account does not exist";
+                    message = "Login Failed";
                     break;
             }
             warningLoginText.text = message;
@@ -185,7 +186,7 @@ public class NewBehaviourScript : MonoBehaviour
                         //Username is now set
                         //Now return to login screen
                         //UIManager.instance.LoginScreen();
-                        warningRegisterText.text = "";
+                        warningRegisterText.text = "Registered!";
                     }
                 }
             }
