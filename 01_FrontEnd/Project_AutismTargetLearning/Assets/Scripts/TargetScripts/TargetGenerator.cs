@@ -18,6 +18,11 @@ public static class TargetGenerator
         }
     }
 
+    public static Sprite getSpriteFromReference(string refrence)
+    {
+        return(System.Array.Find<Sprite>(images, sprite => sprite.name == refrence));
+    }
+
     public static Target randomTarget()
     {
         int randomDraw = Random.Range((int)0, targets.Length * 10);

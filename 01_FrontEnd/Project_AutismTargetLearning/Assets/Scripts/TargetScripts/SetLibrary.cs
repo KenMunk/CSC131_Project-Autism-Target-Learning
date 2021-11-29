@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 
 public static class SetLibrary
 {
@@ -11,7 +13,16 @@ public static class SetLibrary
 
     public static void loadSets()
     {
+        string UserSetData = "";
 
+        BinaryFormatter binaryFormat = new BinaryFormatter();
+        string loadPath = Application.persistentDataPath + "/" + fileName + ".userData";
+        FileStream loadStream = new FileStream(loadPath, FileMode.OpenOrCreate, FileAccess.ReadWrite);
+
+        UserSetData = (string)binaryFormat.Deserialize(loadStream);
+        Debug.Log(UserSetData);
+        SetFile tempData = new SetFile(UserSetData);
+        sets = tempData.getSets();
     }
 
     public static void saveSets()
@@ -19,6 +30,13 @@ public static class SetLibrary
         string UserSetData = "";
         SetFile tempFileData = new SetFile(sets);
         UserSetData = tempFileData.ToString();
+
+        BinaryFormatter binaryFormat = new BinaryFormatter();
+        string savePath = Application.persistentDataPath + "/" + fileName + ".userData";
+        FileStream saveStream = new FileStream(savePath, FileMode.OpenOrCreate,FileAccess.Write);
+
+        binaryFormat.Serialize(saveStream, UserSetData);
+        saveStream.Close();
 
     }
 

@@ -8,7 +8,9 @@ using Newtonsoft.Json;
 public class SetFile
 {
     
-    public List<Set> sets;
+    public List<Set> sets { get; set; }
+
+    public SetFile() { }
 
     public SetFile(List<Set> sets)
     {
@@ -17,8 +19,9 @@ public class SetFile
 
     public SetFile(string jsonText)
     {
-        SetFile temp = JsonUtility.FromJson<SetFile>(jsonText);
-        this.sets = temp.getSets();
+        //SetFile temp = JsonUtility.FromJson<SetFile>(jsonText);
+        Debug.Log(jsonText);
+        this.sets = JsonConvert.DeserializeObject<SetFile>(jsonText).getSets();
     }
 
     public List<Set> getSets()
@@ -51,7 +54,7 @@ public class SetFile
         
 
         //Keep this here regardless of the implementation used because it will indicate that I forgot to undo something
-        return ("{\"ERROR\":\"JSON code disabled\"}");
+       //return ("{\"ERROR\":\"JSON code disabled\"}");
 
     }
 }

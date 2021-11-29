@@ -96,7 +96,7 @@ public class SetSaver : MonoBehaviour
                 {
                     foreach(Transform transform in EditorScript.library.transform)
                     {
-                        if (target.sprite.name == transform.GetComponent<Image>().sprite.name)
+                        if (target.path == transform.GetComponent<Image>().sprite.name)
                         {
                             EditorScript.addPicturetoSet(transform);
                         }
