@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
+using Newtonsoft.Json;
 
 [System.Serializable]//makes public variables visible in the editor
 public class Set
@@ -117,7 +118,9 @@ public class Set
     // /SUMMARY
     public override string ToString()
     {
-        string output = JsonUtility.ToJson(this.set);
+        string output = "{[]}";
+        //output = JsonUtility.ToJson(this.set);
+        output = JsonConvert.SerializeObject(this.set);
 
         Debug.LogFormat($"Object converted to json with result = {output}");
 

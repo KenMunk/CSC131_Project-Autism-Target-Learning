@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Newtonsoft.Json;
 //using Newtonsoft.Json;//If commented out, I haven't found a good workaround.
 
 [System.Serializable]
@@ -42,12 +43,12 @@ public class SetFile
         return (JsonUtility.ToJson(this));
         //*/
 
-        /*//Disable this code if the Newtonsoft json library can't get added in properly
+        //Disable this code if the Newtonsoft json library can't get added in properly
         string outputJson = JsonConvert.SerializeObject(this);
         Debug.Log(outputJson);
         return (outputJson);
         //*///Keeping this as an available solution if I can get a good workaround.
-
+        
 
         //Keep this here regardless of the implementation used because it will indicate that I forgot to undo something
         return ("{\"ERROR\":\"JSON code disabled\"}");

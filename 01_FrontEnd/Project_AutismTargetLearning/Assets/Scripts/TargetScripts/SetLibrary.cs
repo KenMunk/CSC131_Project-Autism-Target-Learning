@@ -16,7 +16,10 @@ public static class SetLibrary
 
     public static void saveSets()
     {
-        
+        string UserSetData = "";
+        SetFile tempFileData = new SetFile(sets);
+        UserSetData = tempFileData.ToString();
+
     }
 
     public static void updateSet(int setID, Set updatedSet)

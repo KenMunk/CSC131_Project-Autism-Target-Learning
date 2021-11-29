@@ -41,10 +41,12 @@ public class SetSaver : MonoBehaviour
             if (isUnique(Name_Field.text))
             {
                 SetLibrary.addSet(SavedSet);
+                SetLibrary.saveSets();
             }
             else
             {
                 SetLibrary.updateSet(SetLibrary.findSetIndex(Name_Field.text),SavedSet);
+                SetLibrary.saveSets();
             }
             updateSetSelector();
             //clearSet();
