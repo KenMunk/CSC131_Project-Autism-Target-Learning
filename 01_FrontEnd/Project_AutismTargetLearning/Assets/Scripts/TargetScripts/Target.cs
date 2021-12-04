@@ -100,7 +100,7 @@ public class Target
     {
         this.setDefault();
         this.name = name;
-        this.path = image.name;
+        this.setSprite(image);
         //this.sprite = image;
     }
 
@@ -176,12 +176,13 @@ public class Target
     public void setSprite(Sprite image)
     {
         this.path = image.name;
+        this.destinationType = DesinationTypes.ProjectFile;
         //this.sprite = image;
     }
 
     public bool hasSprite()
     {
-        return (this.path != "");
+        return (this.path != "" && this.path != null);
     }
 
 
