@@ -14,7 +14,7 @@ public static class TargetGenerator
 
         for(int i = 0; i<images.Length; i++)
         {
-            targets[i] = new Target(images[i].name.Split('-')[0], images[i]);
+            targets[i] = new Target(images[i].name, images[i]);
         }
     }
 
