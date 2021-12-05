@@ -767,8 +767,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -125}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: -8.35, y: 633}
+  m_SizeDelta: {x: 714.65, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1733593664
 CanvasRenderer:
@@ -832,7 +832,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -1032,6 +1032,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1203931592}
     m_Modifications:
+    - target: {fileID: 4314857569419952952, guid: 684b3a5fac381664cbd72216b0cf6ae6, type: 3}
+      propertyPath: m_InputType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4314857569419952952, guid: 684b3a5fac381664cbd72216b0cf6ae6, type: 3}
+      propertyPath: m_ContentType
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 5812618471147239990, guid: 684b3a5fac381664cbd72216b0cf6ae6, type: 3}
       propertyPath: m_Name
       value: LoginPanel
