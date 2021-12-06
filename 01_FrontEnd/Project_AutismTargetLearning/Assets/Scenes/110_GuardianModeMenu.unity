@@ -369,19 +369,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5188103044841662954, guid: f590cec9f4cd3de4db87b4eb71b95421, type: 3}
       propertyPath: m_Type
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5188103044841662954, guid: f590cec9f4cd3de4db87b4eb71b95421, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 2087475fe5da59b49839e12b50707257, type: 3}
+      objectReference: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 5923134109165272736, guid: f590cec9f4cd3de4db87b4eb71b95421, type: 3}
       propertyPath: m_Name
       value: Home
       objectReference: {fileID: 0}
     - target: {fileID: 6337205463090664517, guid: f590cec9f4cd3de4db87b4eb71b95421, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8017755072810511463, guid: f590cec9f4cd3de4db87b4eb71b95421, type: 3}
       propertyPath: targetScene

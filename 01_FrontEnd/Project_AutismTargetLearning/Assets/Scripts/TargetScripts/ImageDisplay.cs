@@ -47,7 +47,7 @@ public class ImageDisplay : MonoBehaviour
         {
             if(this.detectedImage != targetImage)
             {
-                updateGameobjectImage();
+                this.updateGameobjectImage();
             }
         }
     }

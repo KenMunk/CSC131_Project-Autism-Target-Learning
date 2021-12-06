@@ -364,8 +364,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 217195430}
   m_TextComponent: {fileID: 1559443062}
   m_Placeholder: {fileID: 412361620}
-  m_ContentType: 0
-  m_InputType: 0
+  m_ContentType: 7
+  m_InputType: 2
   m_AsteriskChar: 42
   m_KeyboardType: 0
   m_LineType: 0
@@ -1080,6 +1080,14 @@ PrefabInstance:
     - target: {fileID: 343953112711286859, guid: 684b3a5fac381664cbd72216b0cf6ae6, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -128
+      objectReference: {fileID: 0}
+    - target: {fileID: 4314857569419952952, guid: 684b3a5fac381664cbd72216b0cf6ae6, type: 3}
+      propertyPath: m_InputType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4314857569419952952, guid: 684b3a5fac381664cbd72216b0cf6ae6, type: 3}
+      propertyPath: m_ContentType
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4871899638622335953, guid: 684b3a5fac381664cbd72216b0cf6ae6, type: 3}
       propertyPath: m_AnchoredPosition.y
