@@ -10,6 +10,10 @@ public class TargetLibraryViewer : MonoBehaviour
     public Vector2 cellSize;
 
     public Target[] lastList;
+    public List<Target> filteredTargets = new List<Target>();
+
+    //The targets will be divided into pages 
+    public int pageCount = 0;
     public List<GameObject> previewTargets = new List<GameObject>();
     public int cursor = 0;
 
