@@ -9,6 +9,7 @@ public class SetFilter : MonoBehaviour
     public GameObject filterInputField;
     public GameObject libraryView;
     private InputField filterText;
+    private string previousText;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,19 +24,24 @@ public class SetFilter : MonoBehaviour
 
     void filter()
     {
-        foreach (Transform target in libraryView.transform)
+        if (previousText != filterText.text)
         {
-            if (!target.GetComponent<Image>().sprite.name.ToLower().Contains(filterText.text.ToLower()))
+            foreach (Transform target in libraryView.transform)
             {
-                target.gameObject.SetActive(false);
-            }
-            else if(filterText.text == ""){
-                target.gameObject.SetActive(true);
-            }
-            else
-            {
-                target.gameObject.SetActive(true);
+                if (!target.GetComponent<Image>().sprite.name.ToLower().Contains(filterText.text.ToLower()))
+                {
+                    target.gameObject.SetActive(false);
+                }
+                else if (filterText.text == "")
+                {
+                    target.gameObject.SetActive(true);
+                }
+                else
+                {
+                    target.gameObject.SetActive(true);
+                }
             }
         }
+        previousText = filterText.text;
     }
 }
