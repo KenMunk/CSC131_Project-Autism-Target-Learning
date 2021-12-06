@@ -52,14 +52,12 @@ public class TargetFilter
     {
         this.setRawTargets(rawTargets);
         this.setSearchString("");
-        this.updateFilteredList();
     }
 
     public TargetFilter(Target[] rawTargets, string searchString)
     {
         this.setRawTargets(rawTargets);
         this.setSearchString(searchString);
-        this.updateFilteredList();
     }
 
     public List<Target> getFilteredList()
