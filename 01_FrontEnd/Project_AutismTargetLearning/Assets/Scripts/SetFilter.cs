@@ -29,7 +29,8 @@ public class SetFilter : MonoBehaviour
             {
                 target.gameObject.SetActive(false);
             }
-            else if(filterText.text == ""){
+            else if(filterText.text == "")
+            {
                 target.gameObject.SetActive(true);
             }
             else
