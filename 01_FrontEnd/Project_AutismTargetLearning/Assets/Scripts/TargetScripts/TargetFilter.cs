@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Text.RegularExpressions;
 
+[System.Serializable]
 public class TargetFilter
 {
     public Target[] rawArray;
@@ -13,6 +14,11 @@ public class TargetFilter
     {
         this.searchString = searchString;
         this.updateFilteredList();
+    }
+
+    public string getSearchString()
+    {
+        return (this.searchString);
     }
 
     public void setRawTargets(Target[] rawArray)
@@ -36,11 +42,9 @@ public class TargetFilter
             //search works by taking the search string wrapping it in
             //wildcards, then checking if the name of each target has a match
 
-            Regex searchFilter = new Regex(@$"*{this.searchString}*");
-
             for (int i = 0; i < rawArray.Length; i++)
             {
-                if (searchFilter.IsMatch(this.rawArray[i].name))
+                if ((this.rawArray[i].name.ToLower()).Contains(searchString.ToLower()))
                 {
                     this.filteredList.Add(this.rawArray[i]);
                 }

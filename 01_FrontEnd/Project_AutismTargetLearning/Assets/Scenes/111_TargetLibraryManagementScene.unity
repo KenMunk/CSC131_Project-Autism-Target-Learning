@@ -141,10 +141,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetGrid: {fileID: 528766328}
+  pageNumberText: {fileID: 1578156306}
+  searchBox: {fileID: 348062357}
   cellSize: {x: 0, y: 0}
-  lastList: []
+  pageCount: 0
+  pageNumber: 0
+  lastPageNumber: 0
   previewTargets: []
-  cursor: 0
 --- !u!1001 &316206390
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -312,6 +315,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetScene: 110_GuardianModeMenu
+--- !u!114 &348062357 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1539375733206871674, guid: c16b2974a0367864fbb0abc6965662ae, type: 3}
+  m_PrefabInstance: {fileID: 3517721582812989225}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d199490a83bb2b844b9695cbf13b01ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &528766328 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3517721583031384854, guid: c16b2974a0367864fbb0abc6965662ae, type: 3}
@@ -383,6 +397,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3080500513217164396, guid: 857504110f7d26744ad00c3b52f529e2, type: 3}
   m_PrefabInstance: {fileID: 1382869239}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1578156306 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3373282713814720682, guid: c16b2974a0367864fbb0abc6965662ae, type: 3}
+  m_PrefabInstance: {fileID: 3517721582812989225}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3517721582812989225
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -390,6 +415,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1382869240}
     m_Modifications:
+    - target: {fileID: 845505570944516920, guid: c16b2974a0367864fbb0abc6965662ae, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 70
+      objectReference: {fileID: 0}
     - target: {fileID: 2512382233651807960, guid: c16b2974a0367864fbb0abc6965662ae, type: 3}
       propertyPath: m_Name
       value: ContentSpace
@@ -506,6 +535,62 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 5000
       objectReference: {fileID: 0}
+    - target: {fileID: 3571585879896042983, guid: c16b2974a0367864fbb0abc6965662ae, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3571585879896042983, guid: c16b2974a0367864fbb0abc6965662ae, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3571585879896042983, guid: c16b2974a0367864fbb0abc6965662ae, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 23489764}
+    - target: {fileID: 3571585879896042983, guid: c16b2974a0367864fbb0abc6965662ae, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3571585879896042983, guid: c16b2974a0367864fbb0abc6965662ae, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: gotoNextPage
+      objectReference: {fileID: 0}
+    - target: {fileID: 3571585879896042983, guid: c16b2974a0367864fbb0abc6965662ae, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: TargetLibraryViewer, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3571585879896042983, guid: c16b2974a0367864fbb0abc6965662ae, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3922416629017689767, guid: c16b2974a0367864fbb0abc6965662ae, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3922416629017689767, guid: c16b2974a0367864fbb0abc6965662ae, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3922416629017689767, guid: c16b2974a0367864fbb0abc6965662ae, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 23489764}
+    - target: {fileID: 3922416629017689767, guid: c16b2974a0367864fbb0abc6965662ae, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3922416629017689767, guid: c16b2974a0367864fbb0abc6965662ae, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: gotoPrevPage
+      objectReference: {fileID: 0}
+    - target: {fileID: 3922416629017689767, guid: c16b2974a0367864fbb0abc6965662ae, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: TargetLibraryViewer, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3922416629017689767, guid: c16b2974a0367864fbb0abc6965662ae, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 4040028738911132143, guid: c16b2974a0367864fbb0abc6965662ae, type: 3}
       propertyPath: m_Type
       value: 0
@@ -514,5 +599,13 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 2087475fe5da59b49839e12b50707257, type: 3}
+    - target: {fileID: 8357015728098213986, guid: c16b2974a0367864fbb0abc6965662ae, type: 3}
+      propertyPath: m_Name
+      value: Page Count Display
+      objectReference: {fileID: 0}
+    - target: {fileID: 8500198794869293536, guid: c16b2974a0367864fbb0abc6965662ae, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 70
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c16b2974a0367864fbb0abc6965662ae, type: 3}
