@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: 8a1d2fb9357a17b41a92612453b53fab
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - MouseIcon: {fileID: 2800000, guid: 1cb02609efa623242984405b5609c863, type: 3}
+  - FDE_Logo: {fileID: 2800000, guid: 6450b295cef00584199a00a9da4c1bf6, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

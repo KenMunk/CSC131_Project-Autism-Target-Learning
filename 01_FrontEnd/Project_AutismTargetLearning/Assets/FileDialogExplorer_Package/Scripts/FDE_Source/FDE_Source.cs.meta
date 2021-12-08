@@ -1,0 +1,25 @@
+fileFormatVersion: 2
+guid: b72ed5f8ff7ac7e4cbc84497d216a9de
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - ICON_Files: {instanceID: 0}
+  - ICON_Folders: {instanceID: 0}
+  - ICON_DefaultImageHolder: {instanceID: 0}
+  - customFont: {instanceID: 0}
+  - FDE_SourceObject: {instanceID: 0}
+  - FDE_ItemPrefab: {instanceID: 0}
+  - MouseIcon: {fileID: 2800000, guid: 1cb02609efa623242984405b5609c863, type: 3}
+  - FDE_Logo: {fileID: 2800000, guid: 6450b295cef00584199a00a9da4c1bf6, type: 3}
+  - ActionOBJ_ReadTo3DText: {instanceID: 0}
+  - ActionOBJ_ReadToUIText: {instanceID: 0}
+  - ActionOBJ_ReadToSprite: {instanceID: 0}
+  - ActionOBJ_ReadToUIImage: {instanceID: 0}
+  - ActionOBJ_ReadToRenderer: {instanceID: 0}
+  - ActionOBJ_ReadToVariableMonoBeh: {instanceID: 0}
+  executionOrder: 0
+  icon: {fileID: 2800000, guid: 9706aff92680eed4481444d1e0c6941c, type: 3}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
