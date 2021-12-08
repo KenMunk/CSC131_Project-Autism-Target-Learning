@@ -12,6 +12,8 @@ using UnityEngine.UI;
 /// </summary>
 public class ImageDisplay : MonoBehaviour
 {
+    public GameObject previewWindow;
+
     public Sprite targetImage;
 
     private Sprite detectedImage;
@@ -22,6 +24,11 @@ public class ImageDisplay : MonoBehaviour
 
     //just in case the desired dimensions are going to be different
     public bool automatic = true;
+
+    private void Awake()
+    {
+        this.Start();
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -101,5 +108,10 @@ public class ImageDisplay : MonoBehaviour
                 this.dimensionMultiplier.x = this.targetImage.textureRect.width / this.targetImage.textureRect.height;
             }
         }
+    }
+
+    public void sendPreview()
+    {
+        this.previewWindow.SendMessage("setDisplayImage", this.targetImage);
     }
 }
