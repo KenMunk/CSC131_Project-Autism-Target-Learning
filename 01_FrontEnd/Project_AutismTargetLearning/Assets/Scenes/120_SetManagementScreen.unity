@@ -196,6 +196,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SetManager_Prefab
       objectReference: {fileID: 0}
+    - target: {fileID: 3559157046614272829, guid: 0ca2d3bf399c55e46bb7c590470a7365, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3559157047028541506, guid: 0ca2d3bf399c55e46bb7c590470a7365, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -304,6 +308,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -150
       objectReference: {fileID: 0}
+    - target: {fileID: 3559157048397534469, guid: 0ca2d3bf399c55e46bb7c590470a7365, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3559157048397534469, guid: 0ca2d3bf399c55e46bb7c590470a7365, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 72d118bd3d364d64186685aee6bb6438, type: 3}
     - target: {fileID: 3559157048397534471, guid: 0ca2d3bf399c55e46bb7c590470a7365, type: 3}
       propertyPath: targetScene
       value: 110_GuardianModeMenu
